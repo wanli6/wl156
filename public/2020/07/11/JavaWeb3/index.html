@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java网络编程相关3—Response相关 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Response-返回网页内容 在上一片中获取API调用内容代码为call.execute().body().string() 而我们通常还需要获得HTTP的状态码，获取状态码代码为call.execute().code()，为了避免执行两次请求，优化代码如下： 12345678import okhttp3.Response;&#x2F;&#x2F; 执行请求Response rep &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java网络编程相关3—Response相关">
+<meta property="og:url" content="http://yoursite.com/2020/07/11/JavaWeb3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Response-返回网页内容 在上一片中获取API调用内容代码为call.execute().body().string() 而我们通常还需要获得HTTP的状态码，获取状态码代码为call.execute().code()，为了避免执行两次请求，优化代码如下： 12345678import okhttp3.Response;&#x2F;&#x2F; 执行请求Response rep &#x3D;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-11T02:10:52.000Z">
+<meta property="article:modified_time" content="2020-11-09T10:29:49.832Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaWeb3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/11/JavaWeb3/" class="article-date">
+  <time datetime="2020-07-11T02:10:52.000Z" itemprop="datePublished">2020-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java网络编程相关3—Response相关
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Response-返回网页内容">Response-返回网页内容</h2>
+<p>在上一片中获取API调用内容代码为<code>call.execute().body().string()</code><br>
+而我们通常还需要获得HTTP的状态码，获取状态码代码为<code>call.execute().code()</code>，为了避免执行两次请求，优化代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import okhttp3.Response;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行请求</span><br><span class="line">Response rep &#x3D; call.execute();</span><br><span class="line">&#x2F;&#x2F; 获取响应状态码</span><br><span class="line">int code &#x3D; rep.code();</span><br><span class="line">&#x2F;&#x2F; 获取响应内容</span><br><span class="line">String content &#x3D; rep.body().string();</span><br></pre></td></tr></table></figure>
+<h2 id="Response-返回非文本内容">Response-返回非文本内容</h2>
+<p>在请求图片、excel等非字符文本文件时，不能使用<code>response.body().string();</code>，而应该使用<code>response.body().bytes();</code>来获取二进制编码内容。</p>
+<h2 id="Response-JSON">Response-JSON</h2>
+<p>在JavaWeb2中有将参数对象转化为JSON格式的字符串的方法，也可以将JSON结果转化为对象，方便程序进一步分析。方法为<code>JSON.parseObject()</code></p>
+<h2 id="解析JSON对象">解析JSON对象</h2>
+<p>需要多次取出嵌套的<code>Map</code>对象。 例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Map contentObj &#x3D; JSON.parseObject(content, Map.class);</span><br><span class="line">Map dataObj &#x3D; (Map)contentObj.get(&quot;data&quot;);</span><br><span class="line">String city &#x3D; (String)dataObj.get(&quot;city&quot;);</span><br></pre></td></tr></table></figure>
+<p>由于Map可以存储任何对象，所以从Map中<code>get()</code>到的对象必须指定其实际的类型： (Map)、(String)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/11/JavaWeb3/" data-id="ckhhh2mb60004mgg40l5c7hvi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/11/JavaWeb4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java网络编程相关4—headers
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/10/JavaWeb2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java网络编程相关2—POST表单</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/09/Web%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6/">Web2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/22/Web1/">Web前端基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/12/JavaWeb5/">Java网络编程相关5—下载操作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/JavaWeb4/">Java网络编程相关4—headers</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/JavaWeb3/">Java网络编程相关3—Response相关</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

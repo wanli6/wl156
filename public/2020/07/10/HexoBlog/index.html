@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HexoBlog | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、什么是Hexo hexo是一个快速、简洁、高效的博客框架，支持几条简单的命令发布博客。 二、如何安装Hexo 准备工作  需要电脑中有node.js  git npm install -g hexo-cli运行命令安装Hexo  创建博客文件夹 创建文件夹hexo init blog 安装发布工具 npm install hexo-deployer-git --save ps: 这个命令在上一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HexoBlog">
+<meta property="og:url" content="http://yoursite.com/2020/07/10/HexoBlog/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、什么是Hexo hexo是一个快速、简洁、高效的博客框架，支持几条简单的命令发布博客。 二、如何安装Hexo 准备工作  需要电脑中有node.js  git npm install -g hexo-cli运行命令安装Hexo  创建博客文件夹 创建文件夹hexo init blog 安装发布工具 npm install hexo-deployer-git --save ps: 这个命令在上一">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-10T04:16:22.000Z">
+<meta property="article:modified_time" content="2020-11-09T10:29:49.831Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HexoBlog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/10/HexoBlog/" class="article-date">
+  <time datetime="2020-07-10T04:16:22.000Z" itemprop="datePublished">2020-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HexoBlog
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、什么是Hexo">一、什么是Hexo</h2>
+<p>hexo是一个快速、简洁、高效的博客框架，支持几条简单的命令发布博客。</p>
+<h2 id="二、如何安装Hexo">二、如何安装Hexo</h2>
+<h4 id="准备工作">准备工作</h4>
+<ol>
+<li>需要电脑中有node.js  git</li>
+<li><code>npm install -g hexo-cli</code>运行命令安装Hexo</li>
+</ol>
+<h4 id="创建博客文件夹">创建博客文件夹</h4>
+<p>创建文件夹<code>hexo init blog</code></p>
+<h4 id="安装发布工具">安装发布工具</h4>
+<p><code>npm install hexo-deployer-git --save</code><br>
+ps: 这个命令在上一步创建的文件夹中执行，如果创建了新的文件夹，则需要重新执行。</p>
+<h4 id="修改配置">修改配置</h4>
+<p>打开博客文件夹中的 <code>_config.yml</code> 这个文件<br>
+修改以下配置：<br>
+<code>theme: landscape</code><br>
+<code>deploy:</code><br>
+<code>   type: git</code><br>
+<code>   repository: github仓库地址</code><br>
+<code>   branch: master</code></p>
+<h2 id="三、-Hexo的提交">三、 Hexo的提交</h2>
+<p>hexo提交也分为三步</p>
+<ol>
+<li>hexo clean</li>
+<li>hexo generate(hexo g)</li>
+<li>hexo deploy(hexo d)</li>
+</ol>
+<p><code>hexo clean</code>  清除缓存让新发布的博客快速生效<br>
+<code>hexo g</code>  生成新的静态文件<br>
+<code>hexo d</code>  将生成的文件部署到博客上</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/10/HexoBlog/" data-id="ckhhh2mb30001mgg42u2fc46z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/10/JavaWeb1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java网络编程相关1—简单的API调用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/09/MarkDown/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MarkDown</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/09/Web%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6/">Web2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/22/Web1/">Web前端基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/12/JavaWeb5/">Java网络编程相关5—下载操作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/JavaWeb4/">Java网络编程相关4—headers</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/JavaWeb3/">Java网络编程相关3—Response相关</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

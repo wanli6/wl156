@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java网络编程相关2—POST表单 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="post() 方法 POST操作与API调用不同，POST时数据不是放在URL中，而是在表单中提交的。 因此程序实现需要构建一个FormBody表单对象，用于放置表单数据。代码如下： 1234Builder builder &#x3D; new FormBody.Builder();&#x2F;&#x2F; 设置数据，第一个参数是数据名，第二个参数是数据值builder.add(&quot;&amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java网络编程相关2—POST表单">
+<meta property="og:url" content="http://yoursite.com/2020/07/10/JavaWeb2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="post() 方法 POST操作与API调用不同，POST时数据不是放在URL中，而是在表单中提交的。 因此程序实现需要构建一个FormBody表单对象，用于放置表单数据。代码如下： 1234Builder builder &#x3D; new FormBody.Builder();&#x2F;&#x2F; 设置数据，第一个参数是数据名，第二个参数是数据值builder.add(&quot;&amp;qu">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-10T05:35:11.000Z">
+<meta property="article:modified_time" content="2020-11-09T10:29:49.832Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaWeb2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/10/JavaWeb2/" class="article-date">
+  <time datetime="2020-07-10T05:35:11.000Z" itemprop="datePublished">2020-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java网络编程相关2—POST表单
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="post-方法">post() 方法</h2>
+<p>POST操作与API调用不同，POST时数据不是放在URL中，而是在表单中提交的。<br>
+因此程序实现需要构建一个<code>FormBody</code>表单对象，用于放置表单数据。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Builder builder &#x3D; new FormBody.Builder();</span><br><span class="line">&#x2F;&#x2F; 设置数据，第一个参数是数据名，第二个参数是数据值builder.add(&quot;&quot;, &quot;&quot;);</span><br><span class="line">FormBody formBody &#x3D; builder.build();</span><br><span class="line">Request request &#x3D; new Request.Builder().url(url).post(formBody).build();</span><br></pre></td></tr></table></figure>
+<h2 id="使用POST方法提交JSON数据">使用POST方法提交JSON数据</h2>
+<p>添加依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- JSON 操作库 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;fastjson&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.2.62&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>详细步骤：</p>
+<ol>
+<li>将数据转化为JSON格式的字符串（调用<code>JSON.toJSONString()</code>方法。</li>
+<li>创建<code>RequestBody</code>实例，注意提交类型是<code>application/json; charset=utf-8</code>。</li>
+<li>构建<code>Request</code>实例对象时，调用 <code>.post(requestBody)</code>即表示使用JSON的方式提交数据。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/10/JavaWeb2/" data-id="ckhhh2mb50003mgg4cf594u3v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/11/JavaWeb3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java网络编程相关3—Response相关
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/10/JavaWeb1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java网络编程相关1—简单的API调用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/09/Web%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6/">Web2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/22/Web1/">Web前端基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/12/JavaWeb5/">Java网络编程相关5—下载操作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/JavaWeb4/">Java网络编程相关4—headers</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/JavaWeb3/">Java网络编程相关3—Response相关</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

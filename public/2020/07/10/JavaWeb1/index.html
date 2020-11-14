@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java网络编程相关1—简单的API调用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、无参数的Get请求 安装依赖库 在pom.xml文件（定义Java文件需要用到的依赖）中添加依赖： 12345&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;com.squareup.okhttp3&#x2F;okhttp --&gt;&lt;dependency&gt;    &lt;groupId&gt;com.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java网络编程相关1—简单的API调用">
+<meta property="og:url" content="http://yoursite.com/2020/07/10/JavaWeb1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、无参数的Get请求 安装依赖库 在pom.xml文件（定义Java文件需要用到的依赖）中添加依赖： 12345&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;com.squareup.okhttp3&#x2F;okhttp --&gt;&lt;dependency&gt;    &lt;groupId&gt;com.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-10T04:55:04.000Z">
+<meta property="article:modified_time" content="2020-11-09T10:29:49.832Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaWeb1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/10/JavaWeb1/" class="article-date">
+  <time datetime="2020-07-10T04:55:04.000Z" itemprop="datePublished">2020-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java网络编程相关1—简单的API调用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、无参数的Get请求">一、无参数的Get请求</h3>
+<h5 id="安装依赖库">安装依赖库</h5>
+<p>在<code>pom.xml文件</code>（定义Java文件需要用到的依赖）中添加依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;com.squareup.okhttp3&#x2F;okhttp --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.squareup.okhttp3&lt;&#x2F;groupId&gt; &lt;artifactId&gt;okhttp&lt;&#x2F;artifactId&gt; </span><br><span class="line">    &lt;version&gt;4.1.0&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="使用Okhttp3完成页面请求的三个步骤">使用Okhttp3完成页面请求的三个步骤</h5>
+<ol>
+<li>实例化<code>OkHttpClient</code>。代码<code>OkHttpClient okHttpClient = new OkHttpClient();</code></li>
+<li>执行调用
+<ul>
+<li>i: 实例化<code>Request</code>对象，定义请求的各种参数。<code>Request request = new Request.Builder().url(url).build();</code></li>
+<li>ii: 构建调用对象<code>Call call = okHttpClient.newCall(request);</code></li>
+<li>iii: 最后执行调用<code>call.execute()</code>调用失败就有可能抛出异常，所以必须抓取异常。</li>
+</ul>
+</li>
+<li><code>call.execute</code>实际上返回的是一个结果<strong>对象</strong>，调用这个对象的方法就可以得到返回的字符串内容。<code>call.execute().body().string();</code><br>
+ps: 记得import用到的类。<br>
+<code>import okhttp3.Call;</code><br>
+<code>import okhttp3.OkHttpClient;</code><br>
+<code>import okhttp3.Request;</code><br>
+<code>import java.io.IOException;</code>(异常)</li>
+</ol>
+<h2 id="二、调用API">二、调用API</h2>
+<h4 id="什么是API">什么是API</h4>
+<p>API(Application Programming Interface): 应用程序接口，一般是指一些预先定义的函数，以方便开发人员快速访问某一程序，而无需了解源码。</p>
+<h4 id="调用API">调用API</h4>
+<p>API本质就是一个URL，但是其返回内容与URL有明显的区别，没有大量多余的字符。</p>
+<h6 id="有参数的Get请求需要把包含参数的完整URL传入方法">有参数的Get请求需要把包含参数的完整URL传入方法</h6>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/10/JavaWeb1/" data-id="ckhhh2mb40002mgg4hdm3cq47" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/10/JavaWeb2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Java网络编程相关2—POST表单
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/10/HexoBlog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HexoBlog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/09/Web%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6/">Web2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/22/Web1/">Web前端基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/12/JavaWeb5/">Java网络编程相关5—下载操作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/JavaWeb4/">Java网络编程相关4—headers</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/11/JavaWeb3/">Java网络编程相关3—Response相关</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
