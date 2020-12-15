@@ -145,7 +145,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/08/DS-4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/14/code-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -159,7 +159,140 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/08/DS-4/" class="post-title-link" itemprop="url">数组与广义表（一）</a>
+            <a href="/2020/12/14/code-5/" class="post-title-link" itemprop="url">code-5</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-14 17:42:27 / Modified: 17:42:44" itemprop="dateCreated datePublished" datetime="2020-12-14T17:42:27+08:00">2020-12-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/14/DS-3-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/14/DS-3-2/" class="post-title-link" itemprop="url">数组与广义表（二）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-14 16:51:05 / Modified: 20:38:17" itemprop="dateCreated datePublished" datetime="2020-12-14T16:51:05+08:00">2020-12-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>广义表</h1>
+<h2 id="定义">定义</h2>
+<p>广义表是线性表的推广。也有人称其为列表。<br>
+<strong>特点</strong>：有深度，有长度，可递归，可共享</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ADT Glist &#123;</span><br><span class="line"></span><br><span class="line">    数据对象：D＝｛ei | i&#x3D;1,2,…,n; n&gt;&#x3D;0; ei属于AtomSet或ei 属于 GList，</span><br><span class="line">                                      AtomSet为某个数据对象｝</span><br><span class="line">    数据关系：R1＝｛&lt;ei-1, ei&gt; | ei-1, ei 属于D, 2 &lt;&#x3D; i &lt;&#x3D; n｝</span><br><span class="line">    基本操作:    InitGList(&amp;L);   </span><br><span class="line">                DestroyGList(&amp;L);  </span><br><span class="line">                CopyGlist(&amp;T,L);</span><br><span class="line">                GListLength(L); </span><br><span class="line">                GListDepth(L);     </span><br><span class="line">                GListEmpty(L); </span><br><span class="line">                GetHead(L);      </span><br><span class="line">                GetTail(L);           </span><br><span class="line">                InsertFirst_GL(&amp;L, e)</span><br><span class="line">                DeleteFirst_GL(&amp;L, &amp;e); </span><br><span class="line">                Traverse_GL(L, Visit());</span><br><span class="line">&#125;  ADT GList</span><br></pre></td></tr></table></figure>
+<h2 id="广义表的存储结构">广义表的存储结构</h2>
+<p>存在两种结构的结点（<strong>表结点</strong>和<strong>原子结点</strong>）</p>
+<h3 id="头尾链表存储">头尾链表存储</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typedef enum &#123;ATOM,LIST&#125; ElemTag;   &#x2F;&#x2F;ATOM&#x3D;0:原子,LIST&#x3D;1:子表</span><br><span class="line">typedef struct GLNode&#123;</span><br><span class="line">    ElemTag tag;    &#x2F;&#x2F;公共部分，用来区分原子结点和表结点</span><br><span class="line">    Union&#123;          &#x2F;&#x2F;原子结点和表结点的联合部分</span><br><span class="line">            AtomType atom;</span><br><span class="line">            struct&#123; struct  GLNode *hp,*tp;&#125;ptr;&#x2F;&#x2F; 指针域,hp指向表头,tp指向表尾</span><br><span class="line">        &#125;;</span><br><span class="line">   &#125;*Glist;</span><br></pre></td></tr></table></figure>
+<h3 id="扩展线性链表存储">扩展线性链表存储</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> typedef enum &#123;ATOM,LIST&#125;ElemTag; &#x2F;&#x2F;ATOM&#x3D;&#x3D;0:原子，LIST&#x3D;&#x3D;1：子表</span><br><span class="line"> typedef struct GLNode&#123;</span><br><span class="line">    ElemTag tag; &#x2F;&#x2F;公共部分，用来区分原子结点和表结点</span><br><span class="line">    Union&#123;&#x2F;&#x2F;原子结点和表结点的联合部分</span><br><span class="line">        AtomType atom;&#x2F;&#x2F;原子结点的值域</span><br><span class="line">        Struct GLNode *hp&#x2F;&#x2F;表结点的头指针</span><br><span class="line">    &#125;;</span><br><span class="line">    GLNode *tp; &#x2F;&#x2F;指向下一个结点</span><br><span class="line">&#125;*Glist;</span><br></pre></td></tr></table></figure>
+<h2 id="广义表应用递归（求表的深度）">广义表应用递归（求表的深度）</h2>
+<p>递推模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LS&#x3D;(a1,a2,····an)</span><br><span class="line">DEPTH(LS)&#x3D;0     LS是原子表</span><br><span class="line">DEPTH(LS)&#x3D;1     LS是空表</span><br><span class="line">DEPTH(LS)&#x3D;1+MAX(DEPTH(ai))    1&lt;&#x3D;i&lt;&#x3D;n   LS的一般情况</span><br></pre></td></tr></table></figure>
+<p>递归应用1–求深度函数实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int GListDepth(Glist L)</span><br><span class="line">&#123;    </span><br><span class="line">    if(!L)  return 1;</span><br><span class="line">    if(L-&gt;tag&#x3D;&#x3D;ATOM)    return 0; &#x2F;&#x2F;是原子</span><br><span class="line">    for(max&#x3D;0,pp&#x3D;L;pp;pp&#x3D;pp-&gt;ptr.tp);</span><br><span class="line">    &#123;  </span><br><span class="line">        dep&#x3D;GListDepth(pp-&gt;ptr.hp);</span><br><span class="line">        if(dep&gt;max)     max&#x3D;dep;</span><br><span class="line">    &#125;</span><br><span class="line">    return max+1;</span><br><span class="line">&#125;&#x2F;&#x2F;GListDepth</span><br></pre></td></tr></table></figure>
+<h2 id="递归应用2–复制广义表">递归应用2–复制广义表</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">void GList_Copy(GList A,GList &amp;B)&#x2F;&#x2F; 复制广义表的递归算法 </span><br><span class="line">&#123; </span><br><span class="line">    if(!A-&gt;tag) &#x2F;&#x2F; 当结点为原子时 , 直接复制 </span><br><span class="line">    &#123;</span><br><span class="line">        B-&gt;tag&#x3D;0;     </span><br><span class="line">        B-&gt;atom&#x3D;A-&gt;atom;</span><br><span class="line">    &#125; </span><br><span class="line">    else &#x2F;&#x2F; 当结点为子表时 </span><br><span class="line">    &#123;     </span><br><span class="line">        B-&gt;tag&#x3D;1; </span><br><span class="line">        if(A-&gt;ptr.hp) </span><br><span class="line">        &#123;  </span><br><span class="line">            B-&gt;ptr.hp&#x3D;malloc(sizeof(GLNode)); </span><br><span class="line">            GList_Copy(A-&gt;ptr.hp,B-&gt;ptr.hp); </span><br><span class="line">        &#125; &#x2F;&#x2F; 复制表头 </span><br><span class="line">        if(A-&gt;ptr.tp) </span><br><span class="line">        &#123;       </span><br><span class="line">            B-&gt;ptr.tp&#x3D;malloc(sizeof(GLNode)); </span><br><span class="line">            GList_Copy(A-&gt;ptr.tp,B-&gt;ptr.tp); </span><br><span class="line">        &#125; &#x2F;&#x2F; 复制表尾 </span><br><span class="line">    &#125;&#x2F;&#x2F;else </span><br><span class="line">&#125;&#x2F;&#x2F;GList_Copy</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/08/DS-3-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/08/DS-3-1/" class="post-title-link" itemprop="url">数组与广义表（一）</a>
         </h2>
 
         <div class="post-meta">
@@ -176,7 +309,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-09 23:20:41" itemprop="dateModified" datetime="2020-12-09T23:20:41+08:00">2020-12-09</time>
+                <time title="Modified: 2020-12-14 16:49:24" itemprop="dateModified" datetime="2020-12-14T16:49:24+08:00">2020-12-14</time>
               </span>
 
           
@@ -384,7 +517,7 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/07/DS-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/07/DS-2-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -398,7 +531,7 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/07/DS-3/" class="post-title-link" itemprop="url">栈与队列（二）</a>
+            <a href="/2020/12/07/DS-2-2/" class="post-title-link" itemprop="url">栈与队列（二）</a>
         </h2>
 
         <div class="post-meta">
@@ -407,10 +540,16 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-07 21:07:12 / Modified: 21:16:55" itemprop="dateCreated datePublished" datetime="2020-12-07T21:07:12+08:00">2020-12-07</time>
+              <time title="Created: 2020-12-07 21:07:12" itemprop="dateCreated datePublished" datetime="2020-12-07T21:07:12+08:00">2020-12-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-14 16:48:42" itemprop="dateModified" datetime="2020-12-14T16:48:42+08:00">2020-12-14</time>
+              </span>
 
           
 
@@ -481,7 +620,7 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/06/DS-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/06/DS-2-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -495,7 +634,7 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/06/DS-2/" class="post-title-link" itemprop="url">栈与队列（一）</a>
+            <a href="/2020/12/06/DS-2-1/" class="post-title-link" itemprop="url">栈与队列（一）</a>
         </h2>
 
         <div class="post-meta">
@@ -512,7 +651,7 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-07 21:16:52" itemprop="dateModified" datetime="2020-12-07T21:16:52+08:00">2020-12-07</time>
+                <time title="Modified: 2020-12-14 16:48:53" itemprop="dateModified" datetime="2020-12-14T16:48:53+08:00">2020-12-14</time>
               </span>
 
           
@@ -802,204 +941,6 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/09/Web2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/09/Web2/" class="post-title-link" itemprop="url">Web前端进阶</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-09 11:06:11" itemprop="dateCreated datePublished" datetime="2020-11-09T11:06:11+08:00">2020-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-27 21:26:15" itemprop="dateModified" datetime="2020-11-27T21:26:15+08:00">2020-11-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1>CSS伪类</h1>
-<h2 id="CSS伪类–CSS伪元素">CSS伪类–CSS伪元素</h2>
-<p>伪元素就是利用 <code>css</code> 代码在标签内部的前面，或者后边添加一个行内元素，这个行内元素可以理解为 <code>span</code></p>
-<h3 id="清除浮动">清除浮动</h3>
-<p>使父元素包住浮动的子元素<br>
-如下CSS代码就是清除浮动的CSS代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#! CSS</span><br><span class="line">.clearfix::after&#123;</span><br><span class="line">  content: &#39;&#39;;</span><br><span class="line">  display: block;</span><br><span class="line">  clear: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>哪个盒子的子元素有浮动，就在哪个盒子上添加清除浮动</strong></p>
-<h2 id="CSS伪类–事件伪类">CSS伪类–事件伪类</h2>
-<h4 id="hover–鼠标移动上去"><code>hover</code>–鼠标移动上去</h4>
-<p>具体代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">li:hover&#123;</span><br><span class="line">    background-color: #47A0FC;</span><br><span class="line">    color: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="active–鼠标点击时"><code>active</code>–鼠标点击时</h4>
-<h4 id="focus–获取焦点后"><code>focus</code>–获取焦点后</h4>
-<h2 id="CSS伪类–列表伪类">CSS伪类–列表伪类</h2>
-<h3 id="1-匹配父元素中的第一个子元素–-first-child">1 匹配父元素中的第一个子元素–<code>:first-child</code></h3>
-<p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ul&gt;li:first-child&#123;</span><br><span class="line">    background-color: #3687FC;</span><br><span class="line">    color: #FFFFFF;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-匹配父元素中的最后一个子元素–-last-child">2 匹配父元素中的最后一个子元素–<code>:last-child</code></h3>
-<h3 id="3-匹配父元素中的第n个子元素–-nth-child">3 匹配父元素中的第n个子元素–<code>:nth-child()</code></h3>
-<p><code>nth-child()</code>后边的括号还可以是<code>odd(偶数）</code>和<code>even(奇数)</code></p>
-<h1>CSS装饰</h1>
-<h2 id="cursor">cursor</h2>
-<p><code>cursor</code>的添加方式很简单，如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;点击这里了解更多cursor性质&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>cursor</code>的值很多,如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cursor: pointer;</span><br><span class="line">cursor: default;</span><br><span class="line">cursor: text;</span><br><span class="line">cursor: move;</span><br><span class="line">cursor: grab;</span><br><span class="line">cursor: zoom-out;</span><br></pre></td></tr></table></figure>
-<h2 id="box-shadow-text-shadow">box-shadow/text-shadow</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.11);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/Web1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/22/Web1/" class="post-title-link" itemprop="url">Web前端基础</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-07-22 15:45:38" itemprop="dateCreated datePublished" datetime="2020-07-22T15:45:38+08:00">2020-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-14 21:01:24" itemprop="dateModified" datetime="2020-11-14T21:01:24+08:00">2020-11-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="HTML标签的特点">HTML标签的特点</h2>
-<ol>
-<li>由<strong>尖括号</strong>包围关键词组成。</li>
-<li>成对出现。例如： <p>  </p></li>
-<li>并不是所有标签都有其对应的结束标签。</li>
-</ol>
-<h2 id="外部样式常用的选择器">外部样式常用的选择器</h2>
-<ol>
-<li>标签选择器</li>
-<li>类选择器</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;p class&#x3D;&quot;article&quot;&gt;</span><br><span class="line">  class是定义类的关键字，article是类名，类名可以任意，但是要符合规范</span><br><span class="line">&lt;&#x2F;p&gt;</span><br><span class="line">.article&#123;</span><br><span class="line">          color:skyblue;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>id选择器</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id&#x3D;&quot;p-item&quot;&gt;这是一段文字&lt;&#x2F;p&gt;</span><br><span class="line">#p-item &#123;</span><br><span class="line">  font-size: 24px;</span><br><span class="line">  font-weight: 400;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="高级选择器">高级选择器</h2>
-<ul>
-<li>后代选择器</li>
-<li>交集选择器</li>
-<li>子选择器</li>
-<li>并集选择器</li>
-</ul>
-<h3 id="1-后代选择器">1 后代选择器</h3>
-<p>/* 选择id名为password的标签内部所有类名为box的元素内部的所有p标签 <em>/<br>
-#password .box p{}<br>
-/</em> 选择所有p标签内部的所有span标签 <em>/<br>
-p span{}<br>
-/</em> 选择所有p标签内部的所有类名为spanItem的标签 */<br>
-p .spanItem{}</p>
-<h3 id="2-交集选择器">2 交集选择器</h3>
-<p>写法：<code>a.special{}</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;special&quot;&gt;超链接&lt;&#x2F;a&gt;</span><br><span class="line">&lt;a href&#x3D;&quot;#&quot;&gt;超链接&lt;&#x2F;a&gt;</span><br><span class="line">&lt;a href&#x3D;&quot;#&quot;&gt;超链接&lt;&#x2F;a&gt;</span><br><span class="line">&lt;a href&#x3D;&quot;#&quot;&gt;超链接&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-<p>意思是a标签中类名为special的标签</p>
-<h3 id="3-子选择器">3 子选择器</h3>
-<p>写法： p&gt;span<br>
-与后代选择器类似<br>
-区别：后代选择器选择所有后代，子代选择器只选择子代</p>
-<h3 id="4-并集选择器">4 并集选择器</h3>
-<p>写法：.box,p,h3,.phone{}<br>
-上面这段代码的意思是给类名为box,phone标签名为p、h3的标签添加相同的属性。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1069,7 +1010,7 @@ p .spanItem{}</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
