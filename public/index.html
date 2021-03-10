@@ -145,6 +145,352 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/21/DS-5-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/21/DS-5-3/" class="post-title-link" itemprop="url">选择排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-21 13:25:32 / Modified: 13:39:08" itemprop="dateCreated datePublished" datetime="2020-12-21T13:25:32+08:00">2020-12-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>简单快速排序</h1>
+<p><strong>基本思想</strong>:选择类排序。每一次在n-i+1（i=1…n-1）个记录中选取关键字最小的记录作为有序序列的第i个记录。<br>
+<strong>一趟排序</strong>：通过n-i次关键字的比较，从n-i+1个记录中选取关键字最小的记录与第i个记录交换。<br>
+时间性能分析：O(n2)<br>
+稳定性：不稳定</p>
+<h1>树形选择排序</h1>
+<p>从减少比较次数出发，降低时间复杂度<br>
+<strong>树形选择排序(锦标赛排序)思想</strong>：先对n个记录的关键字两两比较，在「n/2个较小者之间再进行两两比较，重复直至选出最小关键字为止。<br>
+<strong>时间复杂度</strong>:<code>O(nlog2n)</code><br>
+<strong>小结</strong>：稳定的，辅助空间大，和最大值进行多余比较</p>
+<h1>堆排序</h1>
+<p><strong>堆排序</strong>：设堆中有n个元素，输出堆顶最大(小)值后，使剩余n-1元素重建成堆，得到n个元素的次大(小)值，反复执行，得到一个非递减(非递增)有序序列的过程。<br>
+<strong>堆排序的步骤</strong><br>
+Step1:将待排序记录关键字构成一棵完全二叉树；<br>
+Step2:初始建堆(从最后一个非终端结点即无序序列中第  n/2个元素开始向前筛选(从堆顶到叶子结点的调整过程))，建成一个大顶堆；<br>
+Step3:输出堆顶元素(与序列最后一个记录交换)，调整剩余元素为一个新堆。<br>
+Step4:重复step3，直到排序结束<br>
+所以：堆排序的时间复杂度为<code>O(nlog２n)</code><br>
+<strong>小结</strong>：不稳定，适合于n较大的情况，需要一个记录大小供交换用的辅助存储空间</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/20/DS-5-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/20/DS-5-1/" class="post-title-link" itemprop="url">快速排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-20 23:03:10 / Modified: 23:30:54" itemprop="dateCreated datePublished" datetime="2020-12-20T23:03:10+08:00">2020-12-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>起泡排序</h1>
+<p><strong>思想</strong>：交换排序，借助相邻元素的两两比较，出现逆序就交换<br>
+<strong>过程</strong>：<br>
+第一趟排序：从第1到第n个元素，若相邻两个元素位置逆序，交换；否则继续比较下面两个相邻元素，结果使关键字最大的记录被安置到第n个记录的位置上。<br>
+第i趟排序：从第1到第n-i+1个元素，使n-i+1个关键字最大的记录被交换到第n-i+1个记录的位置上。每趟起泡排序，无序序列长度缩小1<br>
+<strong>结束条件</strong>：在任何一趟排序过程中，未出现交换。<br>
+<strong>效率分析</strong>:正序<code>O(n)</code>,逆序<code>O(n2)</code><br>
+<strong>稳定性</strong>：稳定</p>
+<h1>分区排序</h1>
+<p><strong>基本思想</strong>：任选一个待排序序列中的关键字为基准，通过一趟排序将待排记录分割成独立的两部分，其中一部分记录的关键字均小于等于基准，另一部分都大于等于基准。分别对两个子序列进行快速排序，达到整个序列有序。<br>
+<strong>一趟快速排序(一次划分)</strong>：<br>
+待排序序列<code>{L.r[s],L.r[s+1],…,L.r[t]}</code>，选<code>L.r[s]</code>为枢轴，<br>
+排序后 <code>{L.r[s],L.r[s+1],…,L.r[i-1]}</code>和<code>{L.r[i+1],L.r[i+2],…,L.r[t]}</code><br>
+一趟快速排序过程：设指针<code>low=1,high=n</code>，<br>
+Step1:从high所指位置起向前搜索找到第一个关键字小于枢轴的记录与枢轴交换，<br>
+Step2:从low所指位置起向后搜索找到第一个关键字大于枢轴的记录与枢轴交换，<br>
+Step3:重复这两步直到low=high为止。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/20/DS-5-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/20/DS-5-2/" class="post-title-link" itemprop="url">插入排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-20 22:49:42 / Modified: 23:03:31" itemprop="dateCreated datePublished" datetime="2020-12-20T22:49:42+08:00">2020-12-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>直接插入排序</h1>
+<p><strong>思想</strong>：将一个记录插入到已排序的有序表，得到一个新的、记录数增1的有序表。<br>
+<strong>过程</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Step1:查找R[i]的插入位置j+1；</span><br><span class="line">Step2:将R[j+1..i-1]中的记录后移一个位置；</span><br><span class="line">Step3:将R[i]复制到R[j+1]的位置上。</span><br></pre></td></tr></table></figure>
+<p><strong>小结</strong>：小结：稳定，在序列记录基本有序或n值较小时最佳  <code>O(n2)</code></p>
+<h1>折半插入排序</h1>
+<p><strong>思想</strong>:在有序表中，设<code>R[1..i-1]</code>是一个按关键字有序的序列，用折半查找确定<code>R[i]</code>在<code>R[1..i-1]</code>中的插入位置”<br>
+<strong>过程</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Step1:用折半查找确定R[i]在R[1..i-1]中的插入位置”</span><br><span class="line">Step2:最后一个记录到插入位置的记录依次向后移动一个位置</span><br><span class="line">Step3:记录R[i]插入</span><br></pre></td></tr></table></figure>
+<p><strong>小结</strong>：稳定，适用于待排序记录数量很大的情况。 <code>O(n2)</code></p>
+<h1>2-路插入排序</h1>
+<p><strong>思想</strong>：另设一个与L.r同类型的数组d，令<code>d[1]=L.r[1]</code>，将<code>d[1]</code>看成排好序的序列中处于中间位置的记录。从L.r的第二个记录起依次与<code>d[1]</code>比较，若<code>L.r[i].key&lt;d[1].key</code>,插入到<code>d[1]</code>之前的有序表中，若<code>L.r[i].key&gt;d[1].key</code>,插入到<code>d[1]</code>之后的有序表中。<br>
+<strong>优点</strong>：在折半插入排序基础上改进，减少了排序过程中移动记录的次数，为n2/8。<br>
+<strong>缺点</strong>：<br>
+不能绝对避免记录移动<br>
+增加了记录的辅助空间,为n个。<br>
+当<code>d[1]</code>为最大或最小关键字时，无优势可言。</p>
+<h1>希尔排序</h1>
+<p><strong>出发点</strong>：<br>
+（1）若待排序的记录基本有序时，直接插入排序的效率可以大大提高；<br>
+（2）n值很小时，效率也比较高。<br>
+<strong>基本思想</strong>：将待排序记录序列分成若干子序列分别进行直接插入排序，待整个序列中记录“基本有序” 时，再对全体记录进行一次直接插入排序。<br>
+<strong>特点</strong>:相隔某个增量的记录组成一个子序列。<br>
+<strong>时间复杂度</strong>:是所取增量的函数， O（n3/2）<br>
+<strong>稳定性</strong>：不稳定<br>
+<strong>增量序列的选取</strong>:使增量序列中的值没有除1外的公因子，且最后一个增量必须是1。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/15/DS-4-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/15/DS-4-1/" class="post-title-link" itemprop="url">树与二叉树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-15 21:40:02" itemprop="dateCreated datePublished" datetime="2020-12-15T21:40:02+08:00">2020-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-16 22:10:31" itemprop="dateModified" datetime="2020-12-16T22:10:31+08:00">2020-12-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>树的定义与基本术语</h1>
+<h2 id="树">树</h2>
+<p>n（n≥0）个结点的有限集。在任一棵非空树中：</p>
+<ol>
+<li>有且仅有一个特定称为根的结点</li>
+<li>n&gt;1时,其余结点可分为m(m&gt;0)个互不相交的有限集T1,T2,…,Tn，Ti称为树的<strong>子树</strong>。<br>
+树有<strong>递归性</strong>和<strong>层次性</strong>。</li>
+</ol>
+<h2 id="树的一些基本术语">树的一些基本术语</h2>
+<p><strong>树的结点</strong>：数据元素及若干指向其子树的分支<br>
+<strong>叶子</strong>（终端结点）：度（分支的个数）为零的结点<br>
+<strong>非终端结点</strong>（分支结点）：度大于零的结点<br>
+<strong>结点的度</strong>：分支的个数<br>
+<strong>树的度</strong>：树中所有结点的度的最大值<br>
+<strong>树的深度（高度）</strong>：树中叶子结点所在的最大层次<br>
+<strong>结点的层次</strong>:设根结点的层次为1,第l层的结点子树根结点的层次为l+1</p>
+<p><strong>孩子(结点)</strong>：结点子树的根称为该结点的孩子<br>
+<strong>双亲(结点)</strong>：<br>
+<strong>祖先(结点)</strong> ：从根到该结点所经分支上的所有结点。<br>
+<strong>子孙(结点)</strong> ：以某结点为根的子树的任一结点<br>
+<strong>兄弟(结点)</strong> ：同一双亲的孩子互称兄弟。<br>
+<strong>堂兄弟(结点)</strong> ：其双亲在同一层的结点互称堂兄弟</p>
+<p><strong>有序树</strong>：树中结点的各子树从左到右有次序(不能互换)。<br>
+<strong>无序树</strong>：树中结点的各子树从左到右无次序(能互换)。<br>
+<strong>森林</strong>：m（m≥0）棵互不相交的树的集合</p>
+<h1>树的抽象数据结构定义</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">ADT Tree &#123; </span><br><span class="line">    数据对象 D: D是具有相同特性的元素集合</span><br><span class="line">    数据关系R: 若D为空集, 则称空树;若D中只含一个数据元素,则R为空集,否则R&#x3D;&#123;H&#125;,H是如下二元关系:</span><br><span class="line">    (1)在D中存在惟一的称为根的数据元素root,它在关系H下无前驱;</span><br><span class="line">    (2)若D-&#123;root&#125;非空，则存在一个划分D1,D2,…,Dm(m&gt;0),对任意j!&#x3D;k(1&lt;&#x3D;j,k &lt;&#x3D;m)有Dj并Dk&#x3D;空集,且对任意的i (1&lt;&#x3D;i &lt;&#x3D;m),惟一存在数据元素xi属于Di, 有&lt;root, xi &gt; 属于H;</span><br><span class="line">    (3) 对应于D-&#123;root&#125;的划分，H－｛ &lt;root, x1 &gt; ，…, &lt;root, xm &gt; ｝有惟一的一个划分H1,H2,…,Hm(m&gt;0), 对任意j!&#x3D;k(1&lt;&#x3D;j,k &lt;&#x3D;m)有Hj 并 Hk&#x3D;空集,且对任意的i (1&lt;&#x3D;i &lt;&#x3D;m)， Hj是Di上的二元关系,（ Di ，｛ Hi ｝）是一棵符合本定义的树，称为根root的子树。</span><br><span class="line">    基本操作：</span><br><span class="line">            </span><br><span class="line">            InitTree(&amp;T); </span><br><span class="line">            DestroyTree(&amp;T); </span><br><span class="line">            CreateTree(&amp;T,definition); </span><br><span class="line">            ClearTree(&amp;T); </span><br><span class="line">            TreeEmpty(T); </span><br><span class="line">            TreeDepth(T); </span><br><span class="line">            Root(T); </span><br><span class="line">            Value(T,cur_e); </span><br><span class="line">            Assign(T, cur_e, value); </span><br><span class="line">            Parent(T, cur_e); </span><br><span class="line">            LeftChild(T,cur_e); </span><br><span class="line">            RightSibling(T,cur_e); </span><br><span class="line">            InsertChild(&amp;T,&amp;p,i,c); </span><br><span class="line">            DeleteChild(&amp;T,&amp;p,i); </span><br><span class="line">            TraverseTree(T,visit());</span><br><span class="line">   &#125; ADT Tree</span><br></pre></td></tr></table></figure>
+<h1>二叉树</h1>
+<p>学习二叉树的目的：</p>
+<pre><code>二叉树操作算法简单
+任何树都可与二叉树相互转换，
+解决了树的存储结构及运算复杂性问题。
+</code></pre>
+<p>二叉树递归定义：由n(n&gt;=0)个结点的有限集合，或为空集，或由一个根结点及两棵互不相交的左右子树组成，并且左右子树都是二叉树。</p>
+<h2 id="二叉树的抽象数据结构定义">二叉树的抽象数据结构定义</h2>
+<p>暂时略</p>
+<h2 id="二叉树的性质">二叉树的性质</h2>
+<p>性质1：在二叉树的第i层上至多有<code>2i-1</code>个结点(i&gt;=1)。<br>
+性质2：深度为k的二叉树至多有<code>2k－1个</code>结点（k&gt;=1).<br>
+性质3：对任一棵二叉树，若其终端结点数为n0，度为2的结点数为n2，则<code>n0＝n2＋1</code>。<br>
+性质4：具有n个结点的完全二叉树的深度为<code>[log2n] ＋1</code>。</p>
+<h1>满二叉树与完全二叉树</h1>
+<p>见ppt</p>
+<h1>线索二叉树</h1>
+<p>实质上是对二叉树中空的指针域的一种利用。<br>
+线索存储方式与遍历的方式有关。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/14/code-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -616,335 +962,10 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/06/DS-2-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/06/DS-2-1/" class="post-title-link" itemprop="url">栈与队列（一）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-06 21:02:01" itemprop="dateCreated datePublished" datetime="2020-12-06T21:02:01+08:00">2020-12-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-14 16:48:53" itemprop="dateModified" datetime="2020-12-14T16:48:53+08:00">2020-12-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>栈</strong>和<strong>队列</strong>实际上也是线性表，他们是操作受限的的线性表。</p>
-<h1>栈</h1>
-<p><strong>栈</strong>是限定在表尾进行插入或删除操作的的线性。表尾称为<strong>栈顶</strong>，相应的表头称为<strong>栈底</strong>。<br>
-所以栈是 后进先出(last in first out) 的线性表(<strong>LIFO结构</strong>)。</p>
-<h2 id="栈的抽象定义">栈的抽象定义</h2>
-<pre><code>ADT Stack {
-    数据对象：D＝{ai| ai∈ElemSet, i=1,2,...,n, n≥0 }
-    数据关系：R1＝{ &lt;ai-1,ai&gt;| ,ai-1,ai∈D, i=2,...,n }
-        约定an端为栈顶，a1端为栈底。
-    基本操作：
-    
-    InitStack(&amp;S)
-        操作结果：构造一个空栈 S。
-    DestroyStack(&amp;S)
-        初始条件：栈 S 已存在。
-        操作结果：栈 S 被销毁。 
-    ClearStack(&amp;S)
-        初始条件：栈 S 已存在。
-        操作结果：将 S 清为空栈。
-    StackEmpty(S)
-        初始条件：栈 S 已存在。
-        操作结果：若栈 S 为空栈，则返回TRUE，否则返回FALSE。
-        判定栈是否为空栈是栈在应用程序中经常使用的操作，通常以它作为循环结束的条件。  
-    StackLength(S)
-        初始条件：栈 S 已存在。
-        操作结果：返回栈 S 中元素个数，即栈的长度。
-    GetTop(S, &amp;e)
-        初始条件：栈 S 已存在且非空。
-        操作结果：用 e 返回S的栈顶元素。
-        这是取栈顶元素的操作，只以 e 返回栈顶元素，并不将它从栈中删除。 
-    Push(&amp;S, e)
-        初始条件：栈 S 已存在。
-        操作结果：插入元素 e 为新的栈顶元素。
-    Pop(&amp;S, &amp;e)
-        初始条件：栈 S 已存在且非空。
-        操作结果：删除 S 的栈顶元素，并用 e 返回其值。
-    StackTraverse(S, visit( ))
-        初始条件：栈 S 已存在且非空，visit( )为元素的访问函数。
-        操作结果：从栈底到栈顶依次对S的每个元素调用函数visit( )，
-    　　　　　　　　一旦visit( )失败，则操作失败。
-}</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/01/code-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/01/code-2/" class="post-title-link" itemprop="url">线性链表</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-12-01 21:27:48 / Modified: 21:34:03" itemprop="dateCreated datePublished" datetime="2020-12-01T21:27:48+08:00">2020-12-01</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="带头结点的线性链表类型">带头结点的线性链表类型</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#define ElemType int</span><br><span class="line">#define ERROR 0</span><br><span class="line">#define Status int</span><br><span class="line">#define OK 1</span><br><span class="line">#define FALSE 0</span><br><span class="line">#define TRUE 1</span><br><span class="line">typedef struct LNode &#x2F;&#x2F; 结点类型</span><br><span class="line">&#123;</span><br><span class="line">    ElemType data;</span><br><span class="line">    LNode *next;</span><br><span class="line">&#125; * Link, *Position;</span><br><span class="line">typedef struct &#x2F;&#x2F; 链表类型</span><br><span class="line">&#123;</span><br><span class="line">    Link head, tail; &#x2F;&#x2F; 分别指向线性链表中的头结点和最后一个结点</span><br><span class="line">    int len;         &#x2F;&#x2F; 指示线性链表中数据元素的个数</span><br><span class="line">&#125; LinkList;</span><br><span class="line"></span><br><span class="line">void MakeNode(Link &amp;p, ElemType e)</span><br><span class="line">&#123; &#x2F;&#x2F; 分配由p指向的值为e的结点。若分配失败，则退出</span><br><span class="line">    p &#x3D; (Link)malloc(sizeof(LNode));</span><br><span class="line">    if (!p)</span><br><span class="line">        exit(ERROR);</span><br><span class="line">    p-&gt;data &#x3D; e;</span><br><span class="line">&#125;</span><br><span class="line">void FreeNode(Link &amp;p)</span><br><span class="line">&#123; &#x2F;&#x2F; 释放p所指结点</span><br><span class="line">    free(p);</span><br><span class="line">    p &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">void InitList(LinkList &amp;L)</span><br><span class="line">&#123; &#x2F;&#x2F; 构造一个空的线性链表L</span><br><span class="line">    Link p;</span><br><span class="line">    p &#x3D; (Link)malloc(sizeof(LNode)); &#x2F;&#x2F; 生成头结点</span><br><span class="line">    if (p)</span><br><span class="line">    &#123;</span><br><span class="line">        p-&gt;next &#x3D; NULL;</span><br><span class="line">        L.head &#x3D; L.tail &#x3D; p;</span><br><span class="line">        L.len &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        exit(ERROR);</span><br><span class="line">&#125;</span><br><span class="line">void ClearList(LinkList &amp;L)</span><br><span class="line">&#123; &#x2F;&#x2F; 将线性链表L重置为空表，并释放原链表的结点空间</span><br><span class="line">    Link p, q;</span><br><span class="line">    if (L.head !&#x3D; L.tail) &#x2F;&#x2F; 不是空表</span><br><span class="line">    &#123;</span><br><span class="line">        p &#x3D; q &#x3D; L.head-&gt;next;</span><br><span class="line">        L.head-&gt;next &#x3D; NULL;</span><br><span class="line">        while (p !&#x3D; L.tail)</span><br><span class="line">        &#123;</span><br><span class="line">            p &#x3D; q-&gt;next;</span><br><span class="line">            free(q);</span><br><span class="line">            q &#x3D; p;</span><br><span class="line">        &#125;</span><br><span class="line">        free(q);</span><br><span class="line">        L.tail &#x3D; L.head;</span><br><span class="line">        L.len &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void DestroyList(LinkList &amp;L)</span><br><span class="line">&#123;                 &#x2F;&#x2F; 销毁线性链表L，L不再存在</span><br><span class="line">    ClearList(L); &#x2F;&#x2F; 清空链表</span><br><span class="line">    FreeNode(L.head);</span><br><span class="line">    L.tail &#x3D; NULL;</span><br><span class="line">    L.len &#x3D; 0;</span><br><span class="line">&#125;</span><br><span class="line">void InsFirst(LinkList &amp;L, Link h, Link s) &#x2F;&#x2F; 形参增加L,因为需修改L</span><br><span class="line">&#123;                                          &#x2F;&#x2F; h指向L的一个结点，把h当做头结点，将s所指结点插入在第一个结点之前</span><br><span class="line">    s-&gt;next &#x3D; h-&gt;next;</span><br><span class="line">    h-&gt;next &#x3D; s;</span><br><span class="line">    if (h &#x3D;&#x3D; L.tail)      &#x2F;&#x2F; h指向尾结点</span><br><span class="line">        L.tail &#x3D; h-&gt;next; &#x2F;&#x2F; 修改尾指针</span><br><span class="line">    L.len++;</span><br><span class="line">&#125;</span><br><span class="line">Status DelFirst(LinkList &amp;L, Link h, Link &amp;q) &#x2F;&#x2F; 形参增加L,因为需修改L</span><br><span class="line">&#123;                                             &#x2F;&#x2F; h指向L的一个结点，把h当做头结点，删除链表中的第一个结点并以q返回。</span><br><span class="line">    &#x2F;&#x2F; 若链表为空(h指向尾结点)，q&#x3D;NULL，返回FALSE</span><br><span class="line">    q &#x3D; h-&gt;next;</span><br><span class="line">    if (q) &#x2F;&#x2F; 链表非空</span><br><span class="line">    &#123;</span><br><span class="line">        h-&gt;next &#x3D; q-&gt;next;</span><br><span class="line">        if (!h-&gt;next)   &#x2F;&#x2F; 删除尾结点</span><br><span class="line">            L.tail &#x3D; h; &#x2F;&#x2F; 修改尾指针</span><br><span class="line">        L.len--;</span><br><span class="line">        return OK;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        return FALSE; &#x2F;&#x2F; 链表空</span><br><span class="line">&#125;</span><br><span class="line">void Append(LinkList &amp;L, Link s)</span><br><span class="line">&#123; &#x2F;&#x2F; 将指针s(s-&gt;data为第一个数据元素)所指(彼此以指针相链，以NULL结尾)的</span><br><span class="line">    &#x2F;&#x2F; 一串结点链接在线性链表L的最后一个结点之后，并改变链表L的尾指针指向新的尾结点</span><br><span class="line">    int i &#x3D; 1;</span><br><span class="line">    L.tail-&gt;next &#x3D; s;</span><br><span class="line">    while (s-&gt;next)</span><br><span class="line">    &#123;</span><br><span class="line">        s &#x3D; s-&gt;next;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    L.tail &#x3D; s;</span><br><span class="line">    L.len +&#x3D; i;</span><br><span class="line">&#125;</span><br><span class="line">Position PriorPos(LinkList L, Link p)</span><br><span class="line">&#123; &#x2F;&#x2F; 已知p指向线性链表L中的一个结点，返回p所指结点的直接前驱的位置。若无前驱，则返回NULL</span><br><span class="line">    Link q;</span><br><span class="line">    q &#x3D; L.head-&gt;next;</span><br><span class="line">    if (q &#x3D;&#x3D; p) &#x2F;&#x2F; 无前驱</span><br><span class="line">        return NULL;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        while (q-&gt;next !&#x3D; p) &#x2F;&#x2F; q不是p的直接前驱</span><br><span class="line">            q &#x3D; q-&gt;next;</span><br><span class="line">        return q;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Status Remove(LinkList &amp;L, Link &amp;q)</span><br><span class="line">&#123; &#x2F;&#x2F; 删除线性链表L中的尾结点并以q返回，改变链表L的尾指针指向新的尾结点</span><br><span class="line">    Link p &#x3D; L.head;</span><br><span class="line">    if (L.len &#x3D;&#x3D; 0) &#x2F;&#x2F; 空表</span><br><span class="line">    &#123;</span><br><span class="line">        q &#x3D; NULL;</span><br><span class="line">        return FALSE;</span><br><span class="line">    &#125;</span><br><span class="line">    while (p-&gt;next !&#x3D; L.tail)</span><br><span class="line">        p &#x3D; p-&gt;next;</span><br><span class="line">    q &#x3D; L.tail;</span><br><span class="line">    p-&gt;next &#x3D; NULL;</span><br><span class="line">    L.tail &#x3D; p;</span><br><span class="line">    L.len--;</span><br><span class="line">    return OK;</span><br><span class="line">&#125;</span><br><span class="line">void InsBefore(LinkList &amp;L, Link &amp;p, Link s)</span><br><span class="line">&#123; &#x2F;&#x2F; 已知p指向线性链表L中的一个结点，将s所指结点插入在p所指结点之前，</span><br><span class="line">    &#x2F;&#x2F; 并修改指针p指向新插入的结点</span><br><span class="line">    Link q;</span><br><span class="line">    q &#x3D; PriorPos(L, p); &#x2F;&#x2F; q是p的前驱</span><br><span class="line">    if (!q)             &#x2F;&#x2F; p无前驱</span><br><span class="line">        q &#x3D; L.head;</span><br><span class="line">    s-&gt;next &#x3D; p;</span><br><span class="line">    q-&gt;next &#x3D; s;</span><br><span class="line">    p &#x3D; s;</span><br><span class="line">    L.len++;</span><br><span class="line">&#125;</span><br><span class="line">void InsAfter(LinkList &amp;L, Link &amp;p, Link s)</span><br><span class="line">&#123; &#x2F;&#x2F; 已知p指向线性链表L中的一个结点，将s所指结点插入在p所指结点之后，</span><br><span class="line">    &#x2F;&#x2F; 并修改指针p指向新插入的结点</span><br><span class="line">    if (p &#x3D;&#x3D; L.tail) &#x2F;&#x2F; 修改尾指针</span><br><span class="line">        L.tail &#x3D; s;</span><br><span class="line">    s-&gt;next &#x3D; p-&gt;next;</span><br><span class="line">    p-&gt;next &#x3D; s;</span><br><span class="line">    p &#x3D; s;</span><br><span class="line">    L.len++;</span><br><span class="line">&#125;</span><br><span class="line">void SetCurElem(Link p, ElemType e)</span><br><span class="line">&#123; &#x2F;&#x2F; 已知p指向线性链表中的一个结点，用e更新p所指结点中数据元素的值</span><br><span class="line">    p-&gt;data &#x3D; e;</span><br><span class="line">&#125;</span><br><span class="line">ElemType GetCurElem(Link p)</span><br><span class="line">&#123; &#x2F;&#x2F; 已知p指向线性链表中的一个结点，返回p所指结点中数据元素的值</span><br><span class="line">    return p-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line">Status ListEmpty(LinkList L)</span><br><span class="line">&#123; &#x2F;&#x2F; 若线性链表L为空表，则返回TRUE；否则返回FALSE</span><br><span class="line">    if (L.len)</span><br><span class="line">        return FALSE;</span><br><span class="line">    else</span><br><span class="line">        return TRUE;</span><br><span class="line">&#125;</span><br><span class="line">int ListLength(LinkList L)</span><br><span class="line">&#123; &#x2F;&#x2F; 返回线性链表L中元素个数</span><br><span class="line">    return L.len;</span><br><span class="line">&#125;</span><br><span class="line">Position GetHead(LinkList L)</span><br><span class="line">&#123; &#x2F;&#x2F; 返回线性链表L中头结点的位置</span><br><span class="line">    return L.head;</span><br><span class="line">&#125;</span><br><span class="line">Position GetLast(LinkList L)</span><br><span class="line">&#123; &#x2F;&#x2F; 返回线性链表L中最后一个结点的位置</span><br><span class="line">    return L.tail;</span><br><span class="line">&#125;</span><br><span class="line">Position NextPos(Link p)</span><br><span class="line">&#123; &#x2F;&#x2F; 已知p指向线性链表L中的一个结点，返回p所指结点的直接后继的位置。若无后继，则返回NULL</span><br><span class="line">    return p-&gt;next;</span><br><span class="line">&#125;</span><br><span class="line">Status LocatePos(LinkList L, int i, Link &amp;p)</span><br><span class="line">&#123; &#x2F;&#x2F; 返回p指示线性链表L中第i个结点的位置，并返回OK，i值不合法时返回ERROR。i&#x3D;0为头结点</span><br><span class="line">    int j;</span><br><span class="line">    if (i &lt; 0 || i &gt; L.len)</span><br><span class="line">        return ERROR;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        p &#x3D; L.head;</span><br><span class="line">        for (j &#x3D; 1; j &lt;&#x3D; i; j++)</span><br><span class="line">            p &#x3D; p-&gt;next;</span><br><span class="line">        return OK;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Position LocateElem(LinkList L, ElemType e, Status (*compare)(ElemType, ElemType))</span><br><span class="line">&#123; &#x2F;&#x2F; 返回线性链表L中第1个与e满足函数compare()判定关系的元素的位置，</span><br><span class="line">    &#x2F;&#x2F; 若不存在这样的元素，则返回NULL</span><br><span class="line">    Link p &#x3D; L.head;</span><br><span class="line">    do</span><br><span class="line">        p &#x3D; p-&gt;next;</span><br><span class="line">    while (p &amp;&amp; !(compare(p-&gt;data, e))); &#x2F;&#x2F; 没到表尾且没找到满足关系的元素</span><br><span class="line">    return p;</span><br><span class="line">&#125;</span><br><span class="line">void ListTraverse(LinkList L, void (*visit)(ElemType))</span><br><span class="line">&#123; &#x2F;&#x2F; 依次对L的每个数据元素调用函数visit()</span><br><span class="line">    Link p &#x3D; L.head-&gt;next;</span><br><span class="line">    int j;</span><br><span class="line">    for (j &#x3D; 1; j &lt;&#x3D; L.len; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        visit(p-&gt;data);</span><br><span class="line">        p &#x3D; p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">void OrderInsert(LinkList &amp;L, ElemType e, int (*comp)(ElemType, ElemType))</span><br><span class="line">&#123; &#x2F;&#x2F; 已知L为有序线性链表，将元素e按非降序插入在L中。(用于一元多项式)</span><br><span class="line">    Link o, p, q;</span><br><span class="line">    q &#x3D; L.head;</span><br><span class="line">    p &#x3D; q-&gt;next;</span><br><span class="line">    while (p !&#x3D; NULL &amp;&amp; comp(p-&gt;data, e) &lt; 0) &#x2F;&#x2F; p不是表尾且元素值小于e</span><br><span class="line">    &#123;</span><br><span class="line">        q &#x3D; p;</span><br><span class="line">        p &#x3D; p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    o &#x3D; (Link)malloc(sizeof(LNode)); &#x2F;&#x2F; 生成结点</span><br><span class="line">    o-&gt;data &#x3D; e;                     &#x2F;&#x2F; 赋值</span><br><span class="line">    q-&gt;next &#x3D; o;                     &#x2F;&#x2F; 插入</span><br><span class="line">    o-&gt;next &#x3D; p;</span><br><span class="line">    L.len++;        &#x2F;&#x2F; 表长加1</span><br><span class="line">    if (!p)         &#x2F;&#x2F; 插在表尾</span><br><span class="line">        L.tail &#x3D; o; &#x2F;&#x2F; 修改尾结点</span><br><span class="line">&#125;</span><br><span class="line">Status LocateElem(LinkList L, ElemType e, Position &amp;q, int (*compare)(ElemType, ElemType))</span><br><span class="line">&#123; &#x2F;&#x2F; 若升序链表L中存在与e满足判定函数compare()取值为0的元素，则q指示L中</span><br><span class="line">    &#x2F;&#x2F; 第一个值为e的结点的位置，并返回TRUE；否则q指示第一个与e满足判定函数</span><br><span class="line">    &#x2F;&#x2F; compare()取值&gt;0的元素的前驱的位置。并返回FALSE。(用于一元多项式)</span><br><span class="line">    Link p &#x3D; L.head, pp;</span><br><span class="line">    do</span><br><span class="line">    &#123;</span><br><span class="line">        pp &#x3D; p;</span><br><span class="line">        p &#x3D; p-&gt;next;</span><br><span class="line">    &#125; while (p &amp;&amp; (compare(p-&gt;data, e) &lt; 0)); &#x2F;&#x2F; 没到表尾且p-&gt;data.expn&lt;e.expn</span><br><span class="line">    if (!p || compare(p-&gt;data, e) &gt; 0)        &#x2F;&#x2F; 到表尾或compare(p-&gt;data,e)&gt;0</span><br><span class="line">    &#123;</span><br><span class="line">        q &#x3D; pp;</span><br><span class="line">        return FALSE;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#x2F;&#x2F; 找到</span><br><span class="line">    &#123;</span><br><span class="line">        q &#x3D; p;</span><br><span class="line">        return TRUE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/16/code-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/16/code-1/" class="post-title-link" itemprop="url">线性表的代码实现</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-11-16 22:29:51 / Modified: 22:35:12" itemprop="dateCreated datePublished" datetime="2020-11-16T22:29:51+08:00">2020-11-16</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="包含各种功能函数的头文件-list-h">包含各种功能函数的头文件<code>&quot;list.h</code></h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line">#ifndef _LIST_H_</span><br><span class="line"></span><br><span class="line">#define _LIST_H_</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;代码部分</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#define ERROR 0</span><br><span class="line">#define OVERFLOW 0</span><br><span class="line">#define ok 1</span><br><span class="line">#define TURE 1</span><br><span class="line">#define FALSE 0</span><br><span class="line">#define LISTINCREMENT 5</span><br><span class="line">#define LIST_INIT_SIZE 10</span><br><span class="line">typedef int Status;</span><br><span class="line">typedef int ElemType;</span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    ElemType *elem;</span><br><span class="line">    int length;</span><br><span class="line">    int listsize;</span><br><span class="line">&#125; SqList;</span><br><span class="line">&#x2F;&#x2F;利用数组初始化l</span><br><span class="line">void CreateList(SqList *L, ElemType a[5], int n)&#123;</span><br><span class="line">    int i;</span><br><span class="line">    for (i&#x3D;0; i&lt;n; i++)&#123;</span><br><span class="line">        *(L-&gt;elem+i) &#x3D; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    L-&gt;length&#x3D;n;</span><br><span class="line"></span><br><span class="line">&#125;&#x2F;&#x2F;初始化一个顺序表</span><br><span class="line">&#x2F;&#x2F;初始化线性表</span><br><span class="line">Status InitList(SqList *l)</span><br><span class="line">&#123;</span><br><span class="line">    l-&gt;elem &#x3D; (int *)malloc(LIST_INIT_SIZE * sizeof(int));</span><br><span class="line">    if (!l-&gt;elem)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;无法申请空间!\n&quot;);</span><br><span class="line">        exit(OVERFLOW);</span><br><span class="line">    &#125;</span><br><span class="line">    l-&gt;length &#x3D; 0;</span><br><span class="line">    l-&gt;listsize &#x3D; LIST_INIT_SIZE;</span><br><span class="line">    return ok;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;销毁一个线性表</span><br><span class="line">Status DestoryList(SqList *L)</span><br><span class="line">&#123;</span><br><span class="line">    free(L-&gt;elem);</span><br><span class="line">    L-&gt;elem &#x3D; NULL;</span><br><span class="line">    L-&gt;length &#x3D; 0;</span><br><span class="line">    L-&gt;listsize &#x3D; 0;</span><br><span class="line">    return ok;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;将L重置为空表</span><br><span class="line">Status ClearList(SqList *l)</span><br><span class="line">&#123;</span><br><span class="line">    l-&gt;length &#x3D; 0;</span><br><span class="line">    return ok;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;线性表L已存在</span><br><span class="line">Status ListEmpty(SqList *l)</span><br><span class="line">&#123;</span><br><span class="line">    if (l-&gt;length &#x3D;&#x3D; 0)</span><br><span class="line">        return true;</span><br><span class="line">    else</span><br><span class="line">        return false;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;返回线性表中数据元素个数</span><br><span class="line">Status ListLength(SqList *l)</span><br><span class="line">&#123;</span><br><span class="line">    return l-&gt;length;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;获取L中第i个赋值给e</span><br><span class="line">Status GetElem(SqList *L, int i, int *e)</span><br><span class="line">&#123;</span><br><span class="line">    *e &#x3D; *(L-&gt;elem + i);</span><br><span class="line">    return ok;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;返回第一个与e相等的数的下标</span><br><span class="line">Status LocateList(SqList L, int e)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int *p &#x3D; L.elem;</span><br><span class="line">    for (i &#x3D; 0; i &lt; L.length; i++, p++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (*p &#x3D;&#x3D; e)</span><br><span class="line">            return i;</span><br><span class="line">    &#125;</span><br><span class="line">    return FALSE;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;若cur_e不是第一个，返回前驱</span><br><span class="line">Status PriorElem(SqList L, int cur_e, int *pri_e)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int *p &#x3D; L.elem;</span><br><span class="line">    for (i &#x3D; 0; i &lt; L.length; i++, p++)</span><br><span class="line">    &#123; &#x2F;&#x2F;顺序表长度已知，故用for循环</span><br><span class="line">        if (i &#x3D;&#x3D; 0 &amp;&amp; *p &#x3D;&#x3D; cur_e)</span><br><span class="line">            return FALSE;</span><br><span class="line">        if (*p &#x3D;&#x3D; cur_e)</span><br><span class="line">        &#123;                  &#x2F;&#x2F;找到了当前元素且不是第一个元素，</span><br><span class="line">            *pri_e &#x3D; *--p; &#x2F;&#x2F;将其前驱赋给引用参数</span><br><span class="line">            return TURE;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return FALSE;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;若cur_e不是最后一个，返回后继</span><br><span class="line">Status NextElem(SqList L, int cur_e, int *Nex_e)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int *p &#x3D; L.elem;</span><br><span class="line">    for (i &#x3D; 0; i &lt; L.length; i++, p++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (i &#x3D;&#x3D; L.length - 1 &amp;&amp; *p &#x3D;&#x3D; cur_e)</span><br><span class="line">            return FALSE;</span><br><span class="line">        if (*p &#x3D;&#x3D; cur_e)</span><br><span class="line">        &#123;</span><br><span class="line">            *Nex_e &#x3D; *++p;</span><br><span class="line">            return TURE;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return FALSE;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;在指定位置插入元素,在L的第i个位置插入元素e</span><br><span class="line">Status ListInsert(SqList *l, int i, int e)</span><br><span class="line">&#123;</span><br><span class="line">    if (!l-&gt;length) &#x2F;&#x2F;有空余空间</span><br><span class="line">    &#123;</span><br><span class="line">        l-&gt;length++;</span><br><span class="line">        l-&gt;elem[l-&gt;length - 1] &#x3D; e;</span><br><span class="line">        return ok;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (i &lt; 1 || i &gt; l-&gt;length + 1)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;插入位置错误!\n&quot;);</span><br><span class="line">        return OVERFLOW;</span><br><span class="line">    &#125;</span><br><span class="line">    if (l-&gt;length &#x3D;&#x3D; l-&gt;listsize) &#x2F;&#x2F;表已满</span><br><span class="line">    &#123;</span><br><span class="line">        int *newbase;</span><br><span class="line">        newbase &#x3D; (ElemType *)realloc(l-&gt;elem, (l-&gt;listsize + LISTINCREMENT) * sizeof(ElemType));</span><br><span class="line">        if (!newbase)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;增加空间失败!\n&quot;);</span><br><span class="line">            return OVERFLOW;</span><br><span class="line">        &#125;</span><br><span class="line">        l-&gt;elem &#x3D; newbase;</span><br><span class="line">        l-&gt;listsize +&#x3D; LISTINCREMENT;</span><br><span class="line">    &#125;</span><br><span class="line">    int *p;</span><br><span class="line">    p &#x3D; l-&gt;elem + l-&gt;length - 1;</span><br><span class="line">    while (p &gt;&#x3D; l-&gt;elem + i - 1)</span><br><span class="line">        *(p + 1) &#x3D; *p--;</span><br><span class="line">    l-&gt;elem[i - 1] &#x3D; e;</span><br><span class="line">    l-&gt;length++;</span><br><span class="line">    return ok;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;删除第i个元素，用e返回其值</span><br><span class="line">Status ListDelete(SqList *L, int i, int *e)</span><br><span class="line">&#123;</span><br><span class="line">    int *p, *q;</span><br><span class="line">    if (i &lt; 1 || i &gt; L-&gt;length)</span><br><span class="line">        return FALSE;</span><br><span class="line">    p &#x3D; L-&gt;elem + i - 1;         &#x2F;&#x2F;p指向要删除的元素的位置</span><br><span class="line">    q &#x3D; L-&gt;elem + L-&gt;length - 1; &#x2F;&#x2F;q指向表中最后一个元素位置</span><br><span class="line">    *e &#x3D; *p;                     &#x2F;&#x2F;将要删除的元素保存起来</span><br><span class="line">    for (; p &lt;&#x3D; q; p++)          &#x2F;&#x2F;从要删除元素的后面一个元素开始移动元素</span><br><span class="line">        *p &#x3D; *(p + 1);</span><br><span class="line">    L-&gt;length--; &#x2F;&#x2F;表长减一</span><br><span class="line">    return TURE;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;遍历L</span><br><span class="line">Status TravelList(SqList L)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int *p &#x3D; L.elem;</span><br><span class="line">    for (i &#x3D; 0; i &lt; L.length; i++, p++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;第%d个元素为：%d\n&quot;, i, *p);</span><br><span class="line">    &#125;</span><br><span class="line">    return TURE;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-<h4 id="利用头文件的一个简单的应用">利用头文件的一个简单的应用</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;list.h&quot;</span><br><span class="line">void MergeList(SqList La,SqList Lb,SqList &amp;Lc)&#123;</span><br><span class="line">    int i,j,k,La_len,Lb_len,ai,bj;</span><br><span class="line">    i&#x3D;j&#x3D;0;</span><br><span class="line">    k&#x3D;0;</span><br><span class="line">    La_len &#x3D; La.length;</span><br><span class="line">    Lb_len &#x3D; Lb.length;</span><br><span class="line">    while(i&lt;La_len&amp;&amp;j&lt;Lb_len)&#123;</span><br><span class="line">        GetElem(&amp;La, i, &amp;ai);</span><br><span class="line">        GetElem(&amp;Lb, j, &amp;bj);</span><br><span class="line">        if(ai&lt;&#x3D;bj) &#123;ListInsert(&amp;Lc, k++, ai);++i;&#125;</span><br><span class="line">        else&#123;ListInsert(&amp;Lc, k++, bj);++j;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    while (i&lt;La_len) &#123;</span><br><span class="line">        GetElem(&amp;La, i++, &amp;ai);</span><br><span class="line">        ListInsert(&amp;Lc, k++, ai);</span><br><span class="line">    &#125;</span><br><span class="line">    while (j&lt;Lb_len) &#123;</span><br><span class="line">        GetElem(&amp;Lb, j++, &amp;bj);</span><br><span class="line">        ListInsert(&amp;Lc, k++, bj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int la[5] &#x3D; &#123;1,3,5,7,9&#125;;</span><br><span class="line">    int lb[5] &#x3D; &#123;2,3,6,8,10&#125;;</span><br><span class="line">    SqList La,Lb,Lc;</span><br><span class="line">    InitList(&amp;La);</span><br><span class="line">    InitList(&amp;Lb);</span><br><span class="line">    InitList(&amp;Lc);</span><br><span class="line">    CreateList(&amp;La, la, 5);</span><br><span class="line">    CreateList(&amp;Lb, lb, 5);</span><br><span class="line">    MergeList(La, Lb, Lc);</span><br><span class="line">    TravelList(Lc);</span><br><span class="line">    system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/16/DS-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/16/DS-1/" class="post-title-link" itemprop="url">数据结构之线性表</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-16 20:12:56" itemprop="dateCreated datePublished" datetime="2020-11-16T20:12:56+08:00">2020-11-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-01 16:17:43" itemprop="dateModified" datetime="2020-12-01T16:17:43+08:00">2020-12-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="线性表">线性表</h3>
-<p>最简单，最常用的一种数据结构。<br>
-一个数据元素可以由若干个<strong>数据项</strong>组成，这种情况下，常把数据元素称为<strong>记录</strong>，含有大量线性表的数据文件又称为<strong>文件</strong>。<br>
-抽象数据类型线性表的定义如下：</p>
-<p><strong>ADT</strong> List{<br>
-<strong>数据对象</strong>：D={ai|ai=ElemSet,i=1,2,…,n,n≥0}<br>
-<strong>数据关系</strong>：R1={&lt;ai-1,ai&gt;|ai-1,ai∈D,i=2,…,n}<br>
-<strong>基本操作</strong>：<br>
-<code>IniList(&amp;L)</code><br>
-操作结果：构造一个新的线性表L。<br>
-<code>DestroyList(&amp;L)</code><br>
-操作结果：销毁线性表<br>
-<code>ClearList(&amp;L)</code><br>
-操作结果：将L重置为空表<br>
-<code>ListEmpty(L)</code><br>
-操作结果：若L为空表，则返回TURE，否则返回FALSE<br>
-<code>ListLength(L)</code><br>
-操作结果：返回L中数据元素个数<br>
-<code>GetElem(L,i,&amp;e)</code><br>
-初始条件：线性表已存在，1≤i≤ListLength(L)<br>
-操作结果：用e返回L中第i个数据元素的值<br>
-<code>LocateElem(L,e,compare())</code><br>
-操作结果：返回L中第一个与e满足关系compare()的数据元素的位序。若这样的数据元素不存在，则返回结果为0.<br>
-<code>PriorElem(L,cur_e,&amp;pre_e)</code><br>
-若cur-e是L的数据元素，且不是第一个，则用pre_e返回它的前驱，否则操作失败，pre_e无定义<br>
-<code>NextElem(L,cur_e,&amp;text_e)</code><br>
-若cur_e是L的数据元素，且不是最后一个，则用next_e返回它的后继，否则操作失败，next_e无定义<br>
-<code>ListInsert(&amp;L,i,e)</code><br>
-初始条件：线性表已存在，1≤i≤ListLength(L)+1<br>
-操作结果：在L中第i个位置之前插入新的数据元素e,L的长度加1<br>
-<code>ListDelete(&amp;L,i,&amp;e)</code><br>
-初始条件： 线性表存在且非空，1≤i≤ListLength(L)<br>
-操作结果：删除L的第I个数据元素，并用e返回其值，L的长度减一<br>
-<code>ListTravarse(L,visit())</code><br>
-操作结果：依次对L的每个数据元素调用函数visit().一旦visit()失败，则操作失败。<br>
-}ADT List</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1010,7 +1031,7 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
