@@ -145,6 +145,406 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/14/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/14/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" class="post-title-link" itemprop="url">汇编语言</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-14 13:44:20 / Modified: 16:03:15" itemprop="dateCreated datePublished" datetime="2021-03-14T13:44:20+08:00">2021-03-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>汇编语言</h1>
+<h3 id="1、汇编语言与高级语言对比">1、汇编语言与高级语言对比</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">汇编语言</th>
+<th style="text-align:center">高级语言</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">与处理器密切相关，<strong>可移植性</strong>较差</td>
+<td style="text-align:center">与具体计算机无关，<strong>便于移植</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">功能有限，涉及<strong>硬件</strong>细节，编写<strong>繁琐困难</strong></td>
+<td style="text-align:center">高级语言<strong>功能强大</strong>，语法自然，容易理解和掌握</td>
+</tr>
+<tr>
+<td style="text-align:center">直接有效的控制硬件，容易产生运行<strong>速度快</strong>，指令序列<strong>短小</strong>的<strong>高效率</strong>目标程序</td>
+<td style="text-align:center">不易直接控制计算机的各种操作，产生的目标程序往往比较庞大</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2、汇编语言的应用价值">2、汇编语言的应用价值</h3>
+<ul>
+<li>编写运行<strong>速度快、代码量小</strong>的高效程序</li>
+<li>编写底层，<strong>直接控制硬件</strong>的程序</li>
+<li><strong>加解密、病毒防治</strong>等信息安全程序的编程分析</li>
+<li>更好的是用高级语言编程</li>
+</ul>
+<h3 id="3、寄存器（Register）">3、寄存器（Register）</h3>
+<ul>
+<li>
+<p>由<strong>处理器</strong>抽象而来</p>
+</li>
+<li>
+<p>处理器内部的<strong>高速</strong>存储单元</p>
+<p><img src="G:%5C%E5%85%B6%E4%BB%96%5CTypora%5Cimages%5Cimage-20210314142551569.png" alt="image-20210314142551569"></p>
+</li>
+</ul>
+<h3 id="4、存储器地址">4、存储器地址</h3>
+<ul>
+<li>主存储器划分为许多<strong>存储单元</strong></li>
+<li>每个存储单元被编排一个**存储单元地址（存储器地址）**Memory Address</li>
+<li>每个存储单元以字节为基本存储地址
+<ul>
+<li>即为<strong>字节编址</strong> byte addressable</li>
+<li>一个<strong>字节Byte</strong>等于8个<strong>二进制位bit</strong></li>
+<li>二进制位是计算机存储信息的最小单位</li>
+</ul>
+</li>
+</ul>
+<p><img src="G:%5C%E5%85%B6%E4%BB%96%5CTypora%5Cimages%5C21df3b88cb67484984e60cde39c76dff.png" alt="21df3b88cb67484984e60cde39c76dff"></p>
+<h3 id="5、处理器指令格式">5、处理器指令格式</h3>
+<h4 id="处理器指令">处理器指令</h4>
+<ul>
+<li>指令由<strong>操作码</strong>和<strong>操作数</strong>组成</li>
+<li>**操作码（Opcode)**表明处理器执行的操作
+<ul>
+<li>汇编使用<strong>指令助记符</strong>表示</li>
+</ul>
+</li>
+<li>**操作数（Operand)**是参与操作的数据对象
+<ul>
+<li>以<strong>寄存器名或地址形式</strong>指明数据的来源</li>
+<li>汇编使用<strong>寄存器、常量、变量</strong>等表示</li>
+</ul>
+</li>
+</ul>
+<h4 id="指令格式">指令格式</h4>
+<p><img src="G:%5C%E5%85%B6%E4%BB%96%5CTypora%5Cimages%5Cimage-20210314151257421.png" alt="image-20210314151257421"></p>
+<h3 id="6、汇编语言语句">6、汇编语言语句</h3>
+<p><strong>执行性语句</strong>：表达处理器指令，实现功能</p>
+<p>​	标号	硬指令助记符	操作数，操作数；注释</p>
+<ul>
+<li>标号
+<ul>
+<li>冒号分隔</li>
+<li>表示处理器指令在主存中的逻辑地址</li>
+<li>指示分支、循环等程序的目的地址</li>
+</ul>
+</li>
+</ul>
+<p><strong>说明性语句</strong>：表达伪指令， 控制汇编方式</p>
+<p>​	名字	伪指令助记符	参数，参数，…	；注释</p>
+<ul>
+<li>名字
+<ul>
+<li>空格或制表符分割</li>
+<li>变量名，段名，子程序名</li>
+<li>反映变量名，段名，子程序的逻辑地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="7、助记符">7、助记符</h3>
+<p><strong>硬指令助记符</strong>表示处理器指令</p>
+<p><strong>伪指令助记符</strong>表达一个汇编命令</p>
+<h3 id="8、汇编语言开发步骤">8、汇编语言开发步骤</h3>
+<ul>
+<li>
+<p>编辑：用文件编辑器形成一个以asm为扩展名的源程序文件</p>
+</li>
+<li>
+<p>汇编：用汇编程序将asm文件转换为obj模块文件</p>
+</li>
+<li>
+<p>连接：用连接程序将一个或多个目标文件连接成一个exe或者com可执行文件</p>
+</li>
+<li>
+<p>调试：用调试程序排除错误，生成正确的可执行文件</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">计算机组成原理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-14 09:02:48 / Modified: 10:50:42" itemprop="dateCreated datePublished" datetime="2021-03-14T09:02:48+08:00">2021-03-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>第一章 计算机系统概论</h1>
+<h3 id="1、计算机的性能指标">1、计算机的性能指标</h3>
+<ul>
+<li><strong>吞吐量</strong>：表征一台计算机在某一时间间隔内能够处理的信息量。</li>
+<li><strong>响应时间</strong>：从输入有效到系统产生响应之间的时间度量，用时间单位来表示</li>
+<li><strong>利用率</strong>：在给定的时间间隔内，系统被实际使用的时间所占的比率，用百分比表示。</li>
+<li><strong>处理机字长（机器字长）</strong>：处理机运算器中一次能够完成二进制运算的位数，如32、64位；<br>
+机器字长与系统数据总线宽度具有一定的相关性。</li>
+<li><strong>总线宽度</strong>： 一般指运算器和存储器之间的数据总线宽度</li>
+<li><strong>主存储器容量</strong>：主存储器所能存储的二进制数据的位数，或者说主存储器内所有<strong>存储元</strong>的总数目</li>
+<li><strong>主存储器带宽</strong>：单位时间内从主存储器读出的二进制信息量，一般用字节数/秒表示</li>
+<li><strong><u>主频/时钟周期</u></strong>：CPU主时钟的频率——主频，其倒数为CPU的时钟周期（T周期）</li>
+<li>CPU的运算速度
+<ul>
+<li>CPU执行时间：CPU执行一般程序所占用的CPU时间</li>
+<li><strong>CPI</strong>：clock cycle per instruction  执行每条计算机指令所需要的时钟周期</li>
+<li><strong>MIPS</strong>：millions instruction per second   每秒百万指令数，即单位时间内执行的指令数</li>
+<li><strong>MFLOPS</strong>：millions floating-pointer Operations per second  每秒百万浮点操作数，衡量机器浮点操作的性能。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、冯诺依曼机的特点">2、冯诺依曼机的特点</h3>
+<ul>
+<li>由<strong>运算器、存储器、控制器、输入设备、输出设备</strong>组成</li>
+<li>存储器以<strong>二进制形式</strong>存储指令和数据；</li>
+<li>指令由<strong>操作码和地址码</strong>组成；</li>
+<li>存储程序并<strong>按地址顺序执行</strong>；   冯·诺依曼机的核心设计思想，机器自动化工作的关键；</li>
+<li>以<strong>运算器</strong>为中心。</li>
+</ul>
+<h3 id="3、现代计算机的特点">3、现代计算机的特点</h3>
+<ul>
+<li>将<strong>运算器、控制器和片内的高速缓存，统称为CPU</strong>；而将<strong>CPU、主存储器、输入/输出接口和系统总线</strong>统称为主机；其余的设备均为外设。<br>
+主机内仅包含主存储器，辅助存储器属于I/O设备；</li>
+<li>以<strong>存储器</strong>为中心。<br>
+减轻CPU的数据传送负担，提高系统的整体性能；</li>
+</ul>
+<h3 id="4、运算器">4、运算器</h3>
+<ul>
+<li>功能：处理所有的算术及逻辑运算。
+<ul>
+<li>通常称为<strong>ALU(算术逻辑单元)</strong></li>
+</ul>
+</li>
+<li>特点：
+<ul>
+<li>采用二进制数据进行运算；</li>
+<li>运算器一次可以处理的数据位数称为<strong>机器字长</strong>；</li>
+<li>机器字长一般为8、16、32、64位，机器字长直接决定着运算的精度和能力；</li>
+<li>运算器主要由ALU和各类通用寄存器构成。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5、存储器">5、存储器</h3>
+<ul>
+<li>
+<p>功能：保存所有的程序和数据。</p>
+</li>
+<li>
+<p>特点：</p>
+<ul>
+<li>二进制形式保存程序和数据；</li>
+<li>存储器是按存储单元组织的，读写存储单元必须给出单元地址；</li>
+</ul>
+</li>
+<li>
+<p>相关的概念</p>
+<ul>
+<li><strong>存储元</strong>：用于保存一位0/1二进制数据的物理器件；</li>
+<li><strong>存储单元</strong>：能够保存一个字数据的器件，由若干个存储元构成；</li>
+<li><strong>单元地址</strong>：能区分每一个存储单元的编号，一般从0开始编号；</li>
+<li><strong>存储容量</strong>：一个存储器所能保存的二进制信息的总量。</li>
+</ul>
+</li>
+<li>
+<p>存储器的分类：</p>
+<ul>
+<li><strong>外存（辅助存储器）</strong>
+<ul>
+<li>磁盘存储器、光盘存储器；</li>
+<li>CPU不可直接访问；</li>
+</ul>
+</li>
+<li><strong>内存（主存储器）</strong>
+<ul>
+<li>半导体存储器；</li>
+<li>CPU直接访问，存放当前系统运行所需的所有的程序和数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>两个与主存相关的寄存器</p>
+<ul>
+<li><strong>MAR(存储器地址寄存器)</strong>：接收由CPU送来的地址信息；</li>
+<li><strong>MDR(存储器数据寄存器)</strong>：作为外界与存储器之间的数据通路。</li>
+</ul>
+</li>
+</ul>
+<h3 id="6、控制器">6、控制器</h3>
+<ul>
+<li>
+<p><strong>功能：根据所要执行指令的功能，按顺序发出各种控制命令，协调计算机的各个部件的工作。</strong></p>
+</li>
+<li>
+<p>主要任务：</p>
+<ul>
+<li>解释并执行指令；</li>
+<li>控制指令的执行顺序；</li>
+<li>负责指令执行过程中，操作数的寻址；</li>
+<li>根据指令的执行，协调相关部件的工作，如运算类指令执行时对标志寄存器的影响设置。</li>
+</ul>
+</li>
+<li>
+<p>指令的形式</p>
+<ul>
+<li><strong>操作码</strong>：指出指令所进行的操作，如加、减、数据传送等；</li>
+<li><strong>地址码</strong>：指出进行以上操作的数据存放位置。</li>
+</ul>
+</li>
+<li>
+<p>控制器工作的周期</p>
+<ul>
+<li><strong>取指周期</strong>：取指令的一段时间</li>
+<li><strong>执行周期</strong>：执行指令的一段时间</li>
+</ul>
+</li>
+<li>
+<p>指令按顺序执行的控制部件：<strong><u>指令计数器</u></strong></p>
+<ul>
+<li>每取出一条指令，指令计数器就加1；</li>
+<li>遇到转移类指令，控制器根据所执行指令设置指令计数器的值；</li>
+</ul>
+</li>
+<li>
+<p>相关概念</p>
+<ul>
+<li>数据字：该字代表要处理的数据；</li>
+<li>指令字：该字为一条指令；</li>
+<li>指令流：取指周期中，从内存读出的信息流；</li>
+<li>数据流：执行周期中，从内存读出的信息流。</li>
+</ul>
+</li>
+</ul>
+<h3 id="7、计算机系统的层次结构">7、计算机系统的层次结构</h3>
+<ul>
+<li>微程序设计级
+<ul>
+<li>硬件级，硬件信号作用于计算机；</li>
+</ul>
+</li>
+<li>一般机器级
+<ul>
+<li>硬件级，使用微程序解释机器语言；</li>
+</ul>
+</li>
+<li>操作系统级
+<ul>
+<li>混合级，使用机器指令和广义指令；</li>
+</ul>
+</li>
+<li>汇编语言级
+<ul>
+<li>软件级，使用汇编语言；</li>
+</ul>
+</li>
+<li>高级语言级
+<ul>
+<li>软件级，使用高级语言；</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/21/DS-5-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -168,10 +568,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-21 13:25:32 / Modified: 13:39:08" itemprop="dateCreated datePublished" datetime="2020-12-21T13:25:32+08:00">2020-12-21</time>
+              <time title="Created: 2020-12-21 13:25:32" itemprop="dateCreated datePublished" datetime="2020-12-21T13:25:32+08:00">2020-12-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 17:40:57" itemprop="dateModified" datetime="2021-03-11T17:40:57+08:00">2021-03-11</time>
+              </span>
 
           
 
@@ -245,10 +651,16 @@ Step4:重复step3，直到排序结束<br>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-20 23:03:10 / Modified: 23:30:54" itemprop="dateCreated datePublished" datetime="2020-12-20T23:03:10+08:00">2020-12-20</time>
+              <time title="Created: 2020-12-20 23:03:10" itemprop="dateCreated datePublished" datetime="2020-12-20T23:03:10+08:00">2020-12-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 17:40:57" itemprop="dateModified" datetime="2021-03-11T17:40:57+08:00">2021-03-11</time>
+              </span>
 
           
 
@@ -320,10 +732,16 @@ Step3:重复这两步直到low=high为止。</p>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-20 22:49:42 / Modified: 23:03:31" itemprop="dateCreated datePublished" datetime="2020-12-20T22:49:42+08:00">2020-12-20</time>
+              <time title="Created: 2020-12-20 22:49:42" itemprop="dateCreated datePublished" datetime="2020-12-20T22:49:42+08:00">2020-12-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 17:40:57" itemprop="dateModified" datetime="2021-03-11T17:40:57+08:00">2021-03-11</time>
+              </span>
 
           
 
@@ -412,7 +830,7 @@ Step3:重复这两步直到low=high为止。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-16 22:10:31" itemprop="dateModified" datetime="2020-12-16T22:10:31+08:00">2020-12-16</time>
+                <time title="Modified: 2021-03-11 17:40:57" itemprop="dateModified" datetime="2021-03-11T17:40:57+08:00">2021-03-11</time>
               </span>
 
           
@@ -491,64 +909,6 @@ Step3:重复这两步直到low=high为止。</p>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/14/code-5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/14/code-5/" class="post-title-link" itemprop="url">code-5</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-12-14 17:42:27 / Modified: 17:42:44" itemprop="dateCreated datePublished" datetime="2020-12-14T17:42:27+08:00">2020-12-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/14/DS-3-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -572,10 +932,16 @@ Step3:重复这两步直到low=high为止。</p>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-14 16:51:05 / Modified: 20:38:17" itemprop="dateCreated datePublished" datetime="2020-12-14T16:51:05+08:00">2020-12-14</time>
+              <time title="Created: 2020-12-14 16:51:05" itemprop="dateCreated datePublished" datetime="2020-12-14T16:51:05+08:00">2020-12-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 17:40:57" itemprop="dateModified" datetime="2021-03-11T17:40:57+08:00">2021-03-11</time>
+              </span>
 
           
 
@@ -655,7 +1021,7 @@ Step3:重复这两步直到low=high为止。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-14 16:49:24" itemprop="dateModified" datetime="2020-12-14T16:49:24+08:00">2020-12-14</time>
+                <time title="Modified: 2021-03-11 17:40:57" itemprop="dateModified" datetime="2021-03-11T17:40:57+08:00">2021-03-11</time>
               </span>
 
           
@@ -770,10 +1136,16 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-07 23:27:48 / Modified: 23:29:31" itemprop="dateCreated datePublished" datetime="2020-12-07T23:27:48+08:00">2020-12-07</time>
+              <time title="Created: 2020-12-07 23:27:48" itemprop="dateCreated datePublished" datetime="2020-12-07T23:27:48+08:00">2020-12-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 17:40:57" itemprop="dateModified" datetime="2021-03-11T17:40:57+08:00">2021-03-11</time>
+              </span>
 
           
 
@@ -828,10 +1200,16 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-07 21:18:31 / Modified: 23:25:37" itemprop="dateCreated datePublished" datetime="2020-12-07T21:18:31+08:00">2020-12-07</time>
+              <time title="Created: 2020-12-07 21:18:31" itemprop="dateCreated datePublished" datetime="2020-12-07T21:18:31+08:00">2020-12-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-11 17:40:57" itemprop="dateModified" datetime="2021-03-11T17:40:57+08:00">2021-03-11</time>
+              </span>
 
           
 
@@ -845,109 +1223,6 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
 
       
           <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;队列操作实现</span><br><span class="line">&#x2F;&#x2F;单链队列---队列的链式存储结构</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#define OK 1</span><br><span class="line">#define ERROR 0</span><br><span class="line">typedef int Status;</span><br><span class="line">typedef int QElemType;</span><br><span class="line"></span><br><span class="line">typedef struct QNode&#123;</span><br><span class="line">    QElemType data;</span><br><span class="line">    struct QNode *next;</span><br><span class="line">&#125;QNode,*QueuePtr;</span><br><span class="line">typedef struct &#123;</span><br><span class="line">    QueuePtr front;&#x2F;&#x2F;队头</span><br><span class="line">    QueuePtr rear;&#x2F;&#x2F;队尾</span><br><span class="line">&#125;LinkQueue;</span><br><span class="line">&#x2F;&#x2F;初始化队列</span><br><span class="line">Status InitQueue(LinkQueue &amp;Q)&#123;</span><br><span class="line">    Q.front&#x3D; Q.rear&#x3D;(QueuePtr)malloc(sizeof(QNode));</span><br><span class="line">    if(!Q.front) return ERROR;</span><br><span class="line">    Q.front-&gt;next&#x3D;NULL;</span><br><span class="line">    return OK;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;销毁队列</span><br><span class="line">Status DestroyQueue(LinkQueue &amp;Q)&#123;</span><br><span class="line">    while(Q.front)&#123;</span><br><span class="line">        Q.rear&#x3D;Q.front-&gt;next;</span><br><span class="line">        free(Q.front);</span><br><span class="line">        Q.front&#x3D;Q.rear;</span><br><span class="line">    &#125;</span><br><span class="line">    return OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;插入</span><br><span class="line">Status EnQueue(LinkQueue &amp;Q,QElemType e)&#123;</span><br><span class="line">    QueuePtr p;</span><br><span class="line">    p&#x3D;(QueuePtr)malloc(sizeof(QNode));</span><br><span class="line">    if(!p)  exit(0);</span><br><span class="line">    p-&gt;data&#x3D;e;</span><br><span class="line">    p-&gt;next&#x3D;NULL;</span><br><span class="line">    Q.rear-&gt;next&#x3D;p;</span><br><span class="line">    Q.rear&#x3D;p;</span><br><span class="line">    return OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;删除</span><br><span class="line">Status DeQueue (LinkQueue &amp;Q,QElemType &amp;e)&#123;</span><br><span class="line">    QueuePtr q;</span><br><span class="line">    if(Q.front&#x3D;&#x3D;Q.rear) return ERROR;</span><br><span class="line">    q&#x3D;Q.front-&gt;next;</span><br><span class="line">    e&#x3D;q-&gt;data;</span><br><span class="line">    Q.front-&gt;next&#x3D;q-&gt;next;</span><br><span class="line">    if(Q.rear&#x3D;&#x3D;q) Q.rear &#x3D; Q.front;</span><br><span class="line">    free(q);</span><br><span class="line">    return OK;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;判空</span><br><span class="line">Status QueueEmpty(LinkQueue &amp;Q)&#123;</span><br><span class="line">    if(Q.rear&#x3D;&#x3D;Q.front)    return OK;</span><br><span class="line">    else return 0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;清除队列</span><br><span class="line">Status ClearQueue(LinkQueue &amp;Q)&#123;</span><br><span class="line">    QElemType e;</span><br><span class="line">    while(!QueueEmpty(Q))  DeQueue(Q,e);</span><br><span class="line">    return OK;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;队列长度</span><br><span class="line">int QueueLength(LinkQueue &amp;Q)&#123;</span><br><span class="line">    int length&#x3D;0;</span><br><span class="line">    QueuePtr p,q;</span><br><span class="line">    p&#x3D;Q.front;  q&#x3D;Q.rear;</span><br><span class="line">    while(p!&#x3D;q) &#123;</span><br><span class="line">        p&#x3D;p-&gt;next;</span><br><span class="line">        length++;</span><br><span class="line">    &#125;</span><br><span class="line">    return length;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;获取队头元素</span><br><span class="line">Status GetHead(LinkQueue &amp;Q, QElemType e)&#123;</span><br><span class="line">    e&#x3D;Q.front-&gt;next-&gt;data;</span><br><span class="line">    return OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;遍历输出</span><br><span class="line">Status QueueTraverse(LinkQueue &amp;Q)&#123;</span><br><span class="line">    QueuePtr p,q;</span><br><span class="line">    QElemType e;</span><br><span class="line">    p&#x3D;Q.front;</span><br><span class="line">    while((p&#x3D;p-&gt;next)!&#x3D;Q.rear-&gt;next)&#123;</span><br><span class="line">        e&#x3D;p-&gt;data;</span><br><span class="line">        printf(&quot;%d  &quot;,e);</span><br><span class="line">    &#125;</span><br><span class="line">    return OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    LinkQueue Q;</span><br><span class="line">    InitQueue(Q);</span><br><span class="line">	EnQueue(Q, 1);</span><br><span class="line">	EnQueue(Q, 2);</span><br><span class="line">	EnQueue(Q, 3);</span><br><span class="line">	EnQueue(Q, 4);</span><br><span class="line">	EnQueue(Q, 5);</span><br><span class="line">	EnQueue(Q, 6);</span><br><span class="line">	EnQueue(Q, 7);</span><br><span class="line">	EnQueue(Q, 8);</span><br><span class="line">	EnQueue(Q, 9);</span><br><span class="line">	printf(&quot;链队列元素个数：%d\n&quot;,QueueLength(Q));</span><br><span class="line">	printf(&quot;展示元素：\n&quot;);</span><br><span class="line">	QueueTraverse(Q);</span><br><span class="line">	int e1, e2;</span><br><span class="line">	DeQueue(Q, e1);</span><br><span class="line">	DeQueue(Q, e2);</span><br><span class="line">	printf(&quot;删除元素：%d,%d\n&quot;, e1, e2);</span><br><span class="line">	printf(&quot;展示元素：\n&quot;);</span><br><span class="line">	QueueTraverse(Q);</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">	printf(&quot;链队列元素个数：%d\n&quot;, QueueLength(Q));</span><br><span class="line">	ClearQueue(Q);</span><br><span class="line">	printf(&quot;清空元素后，长度为%d，6rear &#x3D; %p，front&#x3D;%p&quot;,QueueLength(Q), Q.rear,Q.front);</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/07/DS-2-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/07/DS-2-2/" class="post-title-link" itemprop="url">栈与队列（二）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-07 21:07:12" itemprop="dateCreated datePublished" datetime="2020-12-07T21:07:12+08:00">2020-12-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-14 16:48:42" itemprop="dateModified" datetime="2020-12-14T16:48:42+08:00">2020-12-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1>队列</h1>
-<p>和<strong>栈</strong>相反，<strong>队列</strong>是一种<strong>先进先出</strong>（first in first out,缩写<strong>FIFO</strong>)的线性表。它只允许在表的一端进行插入，另一端删除元素。</p>
-<h2 id="队列的抽象数据类型定义">队列的抽象数据类型定义</h2>
-<pre><code>ADT Queue{
-
-数据对象：D={ai|ai∈ElemSet, i=1,2, …,n, n≥0}
-
-数据关系：R1={&lt;ai-1,ai&gt;|ai-1,ai∈D, i=1,2, …,n}
-约定a1为队列头，an为队列尾。
-
-基本操作：
-
-    InitQueue( &amp;Q )
-    操作结果：构造一个空队列Q。
-    DestroyQueue ( &amp;Q )
-    初始条件：队列Q已存在。
-    操作结果：销毁队列Q。
-    ClearQueue ( &amp;Q )
-    初始条件：队列Q已存在。
-    操作结果：将Q清为空队列。
-    QueueEmpty( Q )
-    初始条件：队列Q已存在。
-    操作结果：若Q为空队列，则返回TRUE，否则返回FALSE。
-    QueueLength( Q )
-    初始条件：队列Q已存在。
-    操作结果：返回Q的数据元素个数，即队列的长度。
-    GetHead( Q, &amp;e )
-    初始条件：队列Q已存在且非空。
-    操作结果：用e返回Q的队头元素。
-    EnQueue( &amp;Q, e )
-    初始条件：队列Q已存在。
-    操作结果：插入元素e为Q的新的队尾元素。
-    DeQueue( &amp;Q, &amp;e )
-    初始条件：队列Q已存在且非空。
-    操作结果：删除Q的队头元素，并用e返回其值。
-    QueueTraverse( Q, visit() )
-    初始条件：队列Q已存在且非空。
-    操作结果：从队头到队尾依次对Q的每个数据元素调用函数visit()。一旦visit()失败，则操作失败。
-}ADT Queue</code></pre>
-
       
     </div>
 
@@ -1031,7 +1306,7 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1064,7 +1339,7 @@ rpos[row]=rpos[row-1]+第row-1行的非零元素个数<br>
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
