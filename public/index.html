@@ -79,10 +79,12 @@
 
 
 
+<meta name="description" content="wl">
 <meta property="og:type" content="website">
 <meta property="og:title" content="WL Blog">
-<meta property="og:url" content="http://wanli6.github.io/index.html">
+<meta property="og:url" content="https://wanli6.github.io/index.html">
 <meta property="og:site_name" content="WL Blog">
+<meta property="og:description" content="wl">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Wan Li">
 <meta name="twitter:card" content="summary">
@@ -115,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://wanli6.github.io/"/>
+  <link rel="canonical" href="https://wanli6.github.io/"/>
 
 
 
@@ -157,7 +159,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">个人博客</p>
       
   </div>
 
@@ -178,7 +180,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -187,12 +189,32 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            Schedule
           </a>
         </li>
       
@@ -229,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2021/03/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862/">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%804/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wan Li">
@@ -248,7 +270,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862/" itemprop="url">计算机组成原理2</a></h1>
+                <a class="post-title-link" href="/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%804/" itemprop="url">汇编语言4</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-30T21:19:03+08:00">
-                2021-03-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
               </time>
             
 
@@ -300,118 +322,74 @@
       
         
           
-            <h1>计算机组成原理-2</h1>
-<h3 id="1、数值数据的编码格式">1、数值数据的编码格式</h3>
+            <h1>汇编语言第四周</h1>
+<h3 id="1、数据寻址">1、数据寻址</h3>
+<h4 id="寻址方式">寻址方式</h4>
+<p>通过地址访问数据或指令</p>
 <ul>
 <li>
-<p>数值数据的小数点的表示</p>
-</li>
-<li>
-<p>采用约定位置的方式：定点数，定点小数</p>
-</li>
-<li>
-<p>采用位置不固定的方式：浮点数表示法</p>
-</li>
-<li>
-<p>真值和机器数</p>
+<h5 id="数据寻址：指令执行中，访问所需操作的数据"><strong>数据寻址</strong>：指令执行中，访问所需操作的数据</h5>
 <ul>
-<li>真值：正负号加某进制绝对值的形式，即实际值</li>
-<li>机器数：符号以及数值都数码化的数成为机器数</li>
-<li>机器数时真值在机器中的表示</li>
+<li>已经保存在指令代码中—<strong>立即数取址</strong>
+<ul>
+<li>常用来给寄存器和存储单元赋初值（用常量直接表达）</li>
+<li>各种立即数形式
+<ul>
+<li>十六进制常数</li>
+<li>字符（ASCII）</li>
+<li>十进制负数（补码）</li>
+<li>符号常量</li>
+<li>变量的偏移地址</li>
+<li>标号的偏移地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据来自寄存器----<strong>寄存器取址</strong>
+<ul>
+<li>用寄存器名表示他的内容
+<ul>
+<li>八位寄存器表示字节型</li>
+<li>16位寄存器表示字</li>
+<li>32位寄存器表示双字</li>
+</ul>
+</li>
+<li>简单快捷，最常使用</li>
+</ul>
+</li>
+<li>数据来自主存储器–<strong>存储器寻址</strong>
+<ul>
+<li>编程时，存储器使用逻辑地址
+<ul>
+<li>段寄存器指示段基地址</li>
+<li>偏移地址由各种存储器寻址方式计算出</li>
+</ul>
+</li>
+<li>绝大多数情况下默认规定，有时需要显式说明（<strong>段超越</strong>）
+<ul>
+<li><img src="C:%5CUsers%5Cwl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210329195937213.png" alt="image-20210329195937213"></li>
+</ul>
+</li>
+<li><strong>存储器直接寻址</strong>：有效地址只有位移量部分，包含在指令代码中，用变量名表示偏移地址</li>
+<li><strong>存储器的寄存器间接寻址</strong>：有效地址存放在寄存器中（寄存器内容=偏移地址 =有效地址）
+<ul>
+<li>未说明数据类型，需显式说明</li>
+</ul>
+</li>
+<li><strong>存储器的寄存器相对寻址</strong>：
+<ul>
+<li>有效地址是寄存器内容与位移量之和</li>
+</ul>
+</li>
+<li>**存储器的变址寻址：**有效地址是基址变址寄存器操作数，存储器操作数的有效地址由一个基址寄存器的内容加上变址寄存器的内容或再加上位移量构成。</li>
+</ul>
+</li>
+<li></li>
+<li>数据来自外设（I/O) —<strong>I/O寻址</strong></li>
 </ul>
 </li>
 <li>
-<p>十进制数串的表示</p>
-<ul>
-<li>字符串形式：每个十进制数位或符号位都用一个字节存放，每一位数用BCD码或ASCII码表示</li>
-<li>压缩的十进制数串形式：每个数位占用半个字节，符号也占用半个字节，放在最低数字位之后。数位加符号位必须为偶数，当不为偶数时，最高数字位前边补0</li>
-</ul>
-</li>
-</ul>
-<h3 id="2、数值数据的定点表示">2、数值数据的定点表示</h3>
-<ul>
-<li>
-<p>无符号整数的表示</p>
-<ul>
-<li>
-<p>无符号整数是正整数</p>
-</li>
-<li>
-<p>0-2的n次方减一</p>
-</li>
-</ul>
-</li>
-<li>
-<p>定点带符号整数的四种编码</p>
-<ul>
-<li><strong>原码</strong>：符号位加绝对值（正0负1）
-<ul>
-<li>n+1位编码表示范围-2的n次方到2的n次方</li>
-<li>原码有两种0的编码</li>
-<li>乘除简单，加减复杂</li>
-</ul>
-</li>
-<li><strong>补码</strong>： 正数补码与原码一样，负数加上模量
-<ul>
-<li>负数求补码简便方法：从后数到第一个1（1不变），其他按位取反</li>
-<li>减法可以转换加法，比原码多表示一个数</li>
-</ul>
-</li>
-<li>**反码：**正数与原码一样，负数符号位1后跟每位二进制数的反
-<ul>
-<li>最高位为符号位</li>
-<li>0有两个编码，难以加减，范围与原码相同</li>
-</ul>
-</li>
-<li>**移码：**n+1位编码的真值的移码加上2的n次方
-<ul>
-<li>移码把真值映射到一个正数域</li>
-<li>最高位0表示负数，最高位“1”表示正数</li>
-<li>反映真值大小</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="3、数值数据的浮点数">3、数值数据的浮点数</h3>
-<ul>
-<li>R:基数2，不表示	e：指数，可用带符号定点整数表示	M：尾数，纯小数，用带符号的定点小数表示</li>
-<li>浮点数表示的标准化（IEEE754）
-<ul>
-<li>M:尾数，纯小数，小数点在最前边，<strong>原码</strong>表示</li>
-<li>S:  数符</li>
-<li>E：阶码，纯整数，移码表示</li>
-</ul>
-</li>
-</ul>
-<h3 id="4、文字信息的表示">4、文字信息的表示</h3>
-<ul>
-<li>ASCII
-<ul>
-<li>33个控制字符</li>
-<li>95个可打印或显示的</li>
-</ul>
-</li>
-<li>汉字的编码：
-<ul>
-<li>输入码</li>
-<li>交换码</li>
-<li>机内码</li>
-<li>字模码</li>
-</ul>
-</li>
-</ul>
-<h3 id="5、校验码">5、校验码</h3>
-<ul>
-<li>具有发现错误和改正错误能力的一种数据编码格式</li>
-<li>用于检查或纠正在读写和传送数据的过程中出现的错误</li>
-<li>由数据的有效信息+校验位构成</li>
-<li>常见校验码
-<ul>
-<li>奇偶校验码：检错码</li>
-<li>CRC：能纠正一位错误的纠错码</li>
-<li>海明校验码：能纠正一位和多位信息的纠错码</li>
-</ul>
+<p><strong>指令寻址</strong>：确定下一条要执行的指令的位置</p>
 </li>
 </ul>
 
@@ -462,7 +440,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2021/03/29/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%803/">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%805/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wan Li">
@@ -481,7 +459,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/29/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%803/" itemprop="url">汇编语言3</a></h1>
+                <a class="post-title-link" href="/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%805/" itemprop="url">汇编语言5</a></h1>
         
 
         <div class="post-meta">
@@ -493,8 +471,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-29T19:43:41+08:00">
-                2021-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
               </time>
             
 
@@ -533,62 +511,25 @@
       
         
           
-            <h1>汇编语言第三周</h1>
-<h3 id="1、数制">1、数制</h3>
+            <h1>汇编语言第五周——传送和运算指令</h1>
+<h3 id="1、数据传送指令">1、数据传送指令</h3>
 <ul>
 <li>
-<p>二进制    后缀B</p>
+<p>数据传送</p>
+<ul>
+<li>从一个位置到另一个位置</li>
+<li>计算机最基本的操作</li>
+<li>程序设计最常使用的指令</li>
+</ul>
 </li>
 <li>
-<p>十进制     后缀D</p>
+<p>有MOV    XCHG    PUSH    POP    LEA</p>
 </li>
 <li>
-<p>十六进制    后缀H</p>
+<p>MOV</p>
+<p><img src="D:%5CGitBlog%5Cwanli6.github.io%5Csource%5C_posts%5C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%805.assets%5Cimage-20210406151107023.png" alt="image-20210406151107023"></p>
 </li>
 </ul>
-<p>数字计算机基于二值逻辑电路</p>
-<p>二进制直接反应硬件工作原理</p>
-<h3 id="2、编码">2、编码</h3>
-<ul>
-<li>数值的二进制编码是用若干二进制位的0和1数码表达数值</li>
-</ul>
-<h4 id="真值和机器数">真值和机器数</h4>
-<p>真值：现实中真实的数值</p>
-<p>机器数：计算机用二进制组合的数值</p>
-<h4 id="整数编码">整数编码</h4>
-<ul>
-<li>无符号整数	unsigned
-<ul>
-<li>没有复数，从0到2的n次方-1</li>
-</ul>
-</li>
-<li>有符号整数
-<ul>
-<li>最高位表示正负	从-2的n-1次方到2的n次方</li>
-</ul>
-</li>
-</ul>
-<h3 id="3、常量">3、常量</h3>
-<h4 id="常数">常数</h4>
-<ul>
-<li>以后缀字母区分，十六进制A-F开头的要加前导0</li>
-</ul>
-<h4 id="字符和字符串">字符和字符串</h4>
-<ul>
-<li>单引号，双引号没有区别，字符和字符串也没有本质区别</li>
-</ul>
-<h4 id="符号常量">符号常量</h4>
-<ul>
-<li>符号名 = 数值表达式</li>
-<li>符号名 equ 数值表达式</li>
-<li>符号名 equ &lt;字符串&gt;</li>
-</ul>
-<h4 id="数值表达式">数值表达式</h4>
-<ul>
-<li>运算符连接各种常量</li>
-<li>数值用作地址，为<strong>地址表达式</strong></li>
-</ul>
-<h3 id=""></h3>
 
           
         
@@ -637,7 +578,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2021/03/29/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wan Li">
@@ -656,7 +597,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/29/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" itemprop="url">汇编语言</a></h1>
+                <a class="post-title-link" href="/2021/04/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url">计算机组成原理</a></h1>
         
 
         <div class="post-meta">
@@ -668,376 +609,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-29T19:43:41+08:00">
-                2021-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>汇编语言</h1>
-<h3 id="1、汇编语言与高级语言对比">1、汇编语言与高级语言对比</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">汇编语言</th>
-<th style="text-align:center">高级语言</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">与处理器密切相关，<strong>可移植性</strong>较差</td>
-<td style="text-align:center">与具体计算机无关，<strong>便于移植</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">功能有限，涉及<strong>硬件</strong>细节，编写<strong>繁琐困难</strong></td>
-<td style="text-align:center">高级语言<strong>功能强大</strong>，语法自然，容易理解和掌握</td>
-</tr>
-<tr>
-<td style="text-align:center">直接有效的控制硬件，容易产生运行<strong>速度快</strong>，指令序列<strong>短小</strong>的<strong>高效率</strong>目标程序</td>
-<td style="text-align:center">不易直接控制计算机的各种操作，产生的目标程序往往比较庞大</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2、汇编语言的应用价值">2、汇编语言的应用价值</h3>
-<ul>
-<li>编写运行<strong>速度快、代码量小</strong>的高效程序</li>
-<li>编写底层，<strong>直接控制硬件</strong>的程序</li>
-<li><strong>加解密、病毒防治</strong>等信息安全程序的编程分析</li>
-<li>更好的是用高级语言编程</li>
-</ul>
-<h3 id="3、寄存器（Register）">3、寄存器（Register）</h3>
-<ul>
-<li>
-<p>由<strong>处理器</strong>抽象而来</p>
-</li>
-<li>
-<p>处理器内部的<strong>高速</strong>存储单元</p>
-<p><img src="G:%5C%E5%85%B6%E4%BB%96%5CTypora%5Cimages%5Cimage-20210314142551569.png" alt="image-20210314142551569"></p>
-</li>
-</ul>
-<h3 id="4、存储器地址">4、存储器地址</h3>
-<ul>
-<li>主存储器划分为许多<strong>存储单元</strong></li>
-<li>每个存储单元被编排一个**存储单元地址（存储器地址）**Memory Address</li>
-<li>每个存储单元以字节为基本存储地址
-<ul>
-<li>即为<strong>字节编址</strong> byte addressable</li>
-<li>一个<strong>字节Byte</strong>等于8个<strong>二进制位bit</strong></li>
-<li>二进制位是计算机存储信息的最小单位</li>
-</ul>
-</li>
-</ul>
-<p><img src="G:%5C%E5%85%B6%E4%BB%96%5CTypora%5Cimages%5C21df3b88cb67484984e60cde39c76dff.png" alt="21df3b88cb67484984e60cde39c76dff"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2021/03/29/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%802/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wan Li">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WL Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/29/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%802/" itemprop="url">汇编语言2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-29T19:43:41+08:00">
-                2021-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>汇编语言第二周</h1>
-<h3 id="1、处理器指令格式">1、处理器指令格式</h3>
-<h4 id="处理器指令">处理器指令</h4>
-<ul>
-<li>指令由<strong>操作码</strong>和<strong>操作数</strong>组成</li>
-<li>**操作码（Opcode)**表明处理器执行的操作
-<ul>
-<li>汇编使用<strong>指令助记符</strong>表示</li>
-</ul>
-</li>
-<li>**操作数（Operand)**是参与操作的数据对象
-<ul>
-<li>以<strong>寄存器名或地址形式</strong>指明数据的来源</li>
-<li>汇编使用<strong>寄存器、常量、变量</strong>等表示</li>
-</ul>
-</li>
-</ul>
-<h4 id="指令格式">指令格式</h4>
-<p><img src="G:%5C%E5%85%B6%E4%BB%96%5CTypora%5Cimages%5Cimage-20210314151257421.png" alt="image-20210314151257421"></p>
-<h3 id="2、汇编语言语句">2、汇编语言语句</h3>
-<p><strong>执行性语句</strong>：表达处理器指令，实现功能</p>
-<p>​	标号	硬指令助记符	操作数，操作数；注释</p>
-<ul>
-<li>标号
-<ul>
-<li>冒号分隔</li>
-<li>表示处理器指令在主存中的逻辑地址</li>
-<li>指示分支、循环等程序的目的地址</li>
-</ul>
-</li>
-</ul>
-<p><strong>说明性语句</strong>：表达伪指令， 控制汇编方式</p>
-<p>​	名字	伪指令助记符	参数，参数，…	；注释</p>
-<ul>
-<li>名字
-<ul>
-<li>空格或制表符分割</li>
-<li>变量名，段名，子程序名</li>
-<li>反映变量名，段名，子程序的逻辑地址</li>
-</ul>
-</li>
-</ul>
-<h3 id="3、助记符">3、助记符</h3>
-<p><strong>硬指令助记符</strong>表示处理器指令</p>
-<p><strong>伪指令助记符</strong>表达一个汇编命令</p>
-<h3 id="4、汇编语言开发步骤">4、汇编语言开发步骤</h3>
-<ul>
-<li>编辑：用文件编辑器形成一个以asm为扩展名的源程序文件
-<ul>
-<li>源程序文件：<code>*.asm	</code>包含文件：<code>*.inc</code></li>
-</ul>
-</li>
-<li>汇编：用汇编程序将asm文件转换为obj模块文件
-<ul>
-<li><strong>命令：BIN\ML  /c /coff  /Fl  /Zi eg0101.asm</strong>
-<ul>
-<li>/c 实现汇编	/coff 生成目标模块文件   /Fl 生成列表文件	/Zi 调试程序</li>
-</ul>
-</li>
-<li>目标模块文件：<code>*.obj </code>  列表文件：<code>*.list </code>  库文件: <code>*.lib</code></li>
-</ul>
-</li>
-<li>连接：用连接程序将一个或多个目标文件连接成一个exe或者com可执行文件
-<ul>
-<li><strong>命令：BIN\LINK32	/subsystem:console /debug eg0101.obj</strong>
-<ul>
-<li><code>:console</code>控制台程序 <code>:windows</code>图形化程序	<code>/debug</code>调试</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>调试：用调试程序排除错误，生成正确的可执行文件</li>
-</ul>
-<h3 id="5、源程序框架">5、源程序框架</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">; eg0000.asm in Windows Console</span><br><span class="line">	include io32.inc ;包含32位输入输出文件</span><br><span class="line">	.data			 ;定义数据段</span><br><span class="line">	...				 ;数据定义</span><br><span class="line">	.code			 ;定义代码段</span><br><span class="line">start:				 ;代码执行起始位置</span><br><span class="line">	...				 ;主程序</span><br><span class="line">	exit 0			 ;程序正常执行结束</span><br><span class="line">	...			     ;子程序</span><br><span class="line">	end start		 ;汇编结束</span><br></pre></td></tr></table></figure>
-<h3 id="6、">6、</h3>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2021/03/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wan Li">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WL Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/03/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url">计算机组成原理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-29T19:43:41+08:00">
-                2021-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
               </time>
             
 
@@ -1295,7 +868,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2021/03/29/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%804/">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wan Li">
@@ -1314,7 +887,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/29/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%804/" itemprop="url">汇编语言4</a></h1>
+                <a class="post-title-link" href="/2021/04/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%862/" itemprop="url">计算机组成原理2</a></h1>
         
 
         <div class="post-meta">
@@ -1326,8 +899,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-29T19:43:41+08:00">
-                2021-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
               </time>
             
 
@@ -1366,71 +939,119 @@
       
         
           
-            <h1>汇编语言第四周</h1>
-<h3 id="1、数据寻址">1、数据寻址</h3>
-<h4 id="寻址方式">寻址方式</h4>
-<p>通过地址访问数据或指令</p>
+            <h1>计算机组成原理-2</h1>
+<h3 id="1、数值数据的编码格式">1、数值数据的编码格式</h3>
 <ul>
-<li><strong>数据寻址</strong>：指令执行中，访问所需操作的数据
+<li>
+<p>数值数据的小数点的表示</p>
+</li>
+<li>
+<p>采用约定位置的方式：定点数，定点小数</p>
+</li>
+<li>
+<p>采用位置不固定的方式：浮点数表示法</p>
+</li>
+<li>
+<p>真值和机器数</p>
 <ul>
-<li>数据来自主存储器–<strong>存储器寻址</strong>
-<ul>
-<li>编程时，存储器使用逻辑地址
-<ul>
-<li>段寄存器指示段基地址</li>
-<li>偏移地址由各种存储器寻址方式计算出</li>
+<li>真值：正负号加某进制绝对值的形式，即实际值</li>
+<li>机器数：符号以及数值都数码化的数成为机器数</li>
+<li>机器数时真值在机器中的表示</li>
 </ul>
 </li>
-<li>绝大多数情况下默认规定，有时需要显式说明（<strong>段超越</strong>）
+<li>
+<p>十进制数串的表示</p>
 <ul>
-<li><img src="C:%5CUsers%5Cwl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210329195937213.png" alt="image-20210329195937213"></li>
-</ul>
-</li>
-<li><strong>存储器直接寻址</strong>：有效地址只有位移量部分，包含在指令代码中，用变量名表示偏移地址</li>
-<li><strong>存储器的寄存器间接寻址</strong>：有效地址存放在寄存器中（寄存器内容=偏移地址 =有效地址）
-<ul>
-<li>未说明数据类型，需显式说明</li>
-</ul>
-</li>
-<li><strong>存储器的寄存器相对寻址</strong>：
-<ul>
-<li>有效地址是寄存器内容与位移量之和</li>
-</ul>
-</li>
-<li>**存储器的变址寻址：**有效地址是基址变址寄存器操作数，存储器操作数的有效地址由一个基址寄存器的内容加上变址寄存器的内容或再加上位移量构成。</li>
-</ul>
-</li>
-<li>已经保存在指令代码中—<strong>立即数取址</strong>
-<ul>
-<li>常用来给寄存器和存储单元赋初值（用常量直接表达）</li>
-<li>各种立即数形式
-<ul>
-<li>十六进制常数</li>
-<li>字符（ASCII）</li>
-<li>十进制负数（补码）</li>
-<li>符号常量</li>
-<li>变量的偏移地址</li>
-<li>标号的偏移地址</li>
+<li>字符串形式：每个十进制数位或符号位都用一个字节存放，每一位数用BCD码或ASCII码表示</li>
+<li>压缩的十进制数串形式：每个数位占用半个字节，符号也占用半个字节，放在最低数字位之后。数位加符号位必须为偶数，当不为偶数时，最高数字位前边补0</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>数据来自寄存器----<strong>寄存器取址</strong>
+<h3 id="2、数值数据的定点表示">2、数值数据的定点表示</h3>
 <ul>
-<li>用寄存器名表示他的内容
+<li>
+<p>无符号整数的表示</p>
 <ul>
-<li>八位寄存器表示字节型</li>
-<li>16位寄存器表示字</li>
-<li>32位寄存器表示双字</li>
+<li>
+<p>无符号整数是正整数</p>
+</li>
+<li>
+<p>0-2的n次方减一</p>
+</li>
 </ul>
 </li>
-<li>简单快捷，最常使用</li>
+<li>
+<p>定点带符号整数的四种编码</p>
+<ul>
+<li><strong>原码</strong>：符号位加绝对值（正0负1）
+<ul>
+<li>n+1位编码表示范围-2的n次方到2的n次方</li>
+<li>原码有两种0的编码</li>
+<li>乘除简单，加减复杂</li>
 </ul>
 </li>
-<li>数据来自外设（I/O) —<strong>I/O寻址</strong></li>
+<li><strong>补码</strong>： 正数补码与原码一样，负数加上模量
+<ul>
+<li>负数求补码简便方法：从后数到第一个1（1不变），其他按位取反</li>
+<li>减法可以转换加法，比原码多表示一个数</li>
 </ul>
 </li>
-<li><strong>指令寻址</strong>：确定下一条要执行的指令的位置</li>
+<li>**反码：**正数与原码一样，负数符号位1后跟每位二进制数的反
+<ul>
+<li>最高位为符号位</li>
+<li>0有两个编码，难以加减，范围与原码相同</li>
+</ul>
+</li>
+<li>**移码：**n+1位编码的真值的移码加上2的n次方
+<ul>
+<li>移码把真值映射到一个正数域</li>
+<li>最高位0表示负数，最高位“1”表示正数</li>
+<li>反映真值大小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、数值数据的浮点数">3、数值数据的浮点数</h3>
+<ul>
+<li>R:基数2，不表示	e：指数，可用带符号定点整数表示	M：尾数，纯小数，用带符号的定点小数表示</li>
+<li>浮点数表示的标准化（IEEE754）
+<ul>
+<li>M:尾数，纯小数，小数点在最前边，<strong>原码</strong>表示</li>
+<li>S:  数符</li>
+<li>E：阶码，纯整数，移码表示</li>
+</ul>
+</li>
+</ul>
+<h3 id="4、文字信息的表示">4、文字信息的表示</h3>
+<ul>
+<li>ASCII
+<ul>
+<li>33个控制字符</li>
+<li>95个可打印或显示的</li>
+</ul>
+</li>
+<li>汉字的编码：
+<ul>
+<li>输入码</li>
+<li>交换码</li>
+<li>机内码</li>
+<li>字模码</li>
+</ul>
+</li>
+</ul>
+<h3 id="5、校验码">5、校验码</h3>
+<ul>
+<li>具有发现错误和改正错误能力的一种数据编码格式</li>
+<li>用于检查或纠正在读写和传送数据的过程中出现的错误</li>
+<li>由数据的有效信息+校验位构成</li>
+<li>常见校验码
+<ul>
+<li>奇偶校验码：检错码</li>
+<li>CRC：能纠正一位错误的纠错码</li>
+<li>海明校验码：能纠正一位和多位信息的纠错码</li>
+</ul>
+</li>
 </ul>
 
           
@@ -1480,7 +1101,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2021/03/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wan Li">
@@ -1499,7 +1120,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2021/03/29/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/" itemprop="url">数据库系统原理</a></h1>
+                <a class="post-title-link" href="/2021/04/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%863/" itemprop="url">计算机组成原理3</a></h1>
         
 
         <div class="post-meta">
@@ -1511,8 +1132,177 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-29T19:43:41+08:00">
-                2021-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>计算机组成原理3</h1>
+<h3 id="1、补码加减">1、补码加减</h3>
+<ul>
+<li>加法
+<ul>
+<li>x+y的补为x的补加y的补</li>
+<li>特点：
+<ul>
+<li>符号位参与运算</li>
+<li>超过模的进位舍去</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>减法
+<ul>
+<li>同加</li>
+</ul>
+</li>
+<li>溢出
+<ul>
+<li>上溢和下溢</li>
+<li>单符号检测法
+<ul>
+<li><img src="D:%5C%E6%96%87%E4%BB%B6%5CTypora%5Cimages%5Cimage-20210404213245090.png" alt="image-20210404213245090"></li>
+</ul>
+</li>
+<li>双符号检测法
+<ul>
+<li><img src="C:%5CUsers%5Cwl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210404213459557.png" alt="image-20210404213459557"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、定点数的加减计算器">2、定点数的加减计算器</h3>
+<h4 id="一位全加器">一位全加器</h4>
+<p><img src="C:%5CUsers%5Cwl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210404213720096.png" alt="image-20210404213720096"></p>
+<h4 id="多位串行补码加法-减法器">多位串行补码加法/减法器</h4>
+<p><img src="C:%5CUsers%5Cwl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210404214017635.png" alt=""></p>
+<h3 id="3、定点数的乘法运算">3、定点数的乘法运算</h3>
+<h4 id="计算方式：">计算方式：</h4>
+<ul>
+<li><strong>软件实现</strong></li>
+<li><strong>原有加减运算增加一些逻辑电路，将乘除运算转换为移位操作、</strong></li>
+<li><strong>乘法器</strong></li>
+</ul>
+<h4 id="无符号整数乘法器">无符号整数乘法器</h4>
+<h4 id="原码并行乘法器">原码并行乘法器</h4>
+<h4 id="补码阵列乘法器">补码阵列乘法器</h4>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wan Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WL Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/06/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/" itemprop="url">数据库系统原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
               </time>
             
 
@@ -1769,7 +1559,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2020/12/21/DS-5-3/">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wan Li">
@@ -1788,7 +1578,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/12/21/DS-5-3/" itemprop="url">选择排序</a></h1>
+                <a class="post-title-link" href="/2021/04/06/test/" itemprop="url">test</a></h1>
         
 
         <div class="post-meta">
@@ -1800,8 +1590,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-21T13:25:32+08:00">
-                2020-12-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
               </time>
             
 
@@ -1840,25 +1630,8 @@
       
         
           
-            <h1>简单快速排序</h1>
-<p><strong>基本思想</strong>:选择类排序。每一次在n-i+1（i=1…n-1）个记录中选取关键字最小的记录作为有序序列的第i个记录。<br>
-<strong>一趟排序</strong>：通过n-i次关键字的比较，从n-i+1个记录中选取关键字最小的记录与第i个记录交换。<br>
-时间性能分析：O(n2)<br>
-稳定性：不稳定</p>
-<h1>树形选择排序</h1>
-<p>从减少比较次数出发，降低时间复杂度<br>
-<strong>树形选择排序(锦标赛排序)思想</strong>：先对n个记录的关键字两两比较，在「n/2个较小者之间再进行两两比较，重复直至选出最小关键字为止。<br>
-<strong>时间复杂度</strong>:<code>O(nlog2n)</code><br>
-<strong>小结</strong>：稳定的，辅助空间大，和最大值进行多余比较</p>
-<h1>堆排序</h1>
-<p><strong>堆排序</strong>：设堆中有n个元素，输出堆顶最大(小)值后，使剩余n-1元素重建成堆，得到n个元素的次大(小)值，反复执行，得到一个非递减(非递增)有序序列的过程。<br>
-<strong>堆排序的步骤</strong><br>
-Step1:将待排序记录关键字构成一棵完全二叉树；<br>
-Step2:初始建堆(从最后一个非终端结点即无序序列中第  n/2个元素开始向前筛选(从堆顶到叶子结点的调整过程))，建成一个大顶堆；<br>
-Step3:输出堆顶元素(与序列最后一个记录交换)，调整剩余元素为一个新堆。<br>
-Step4:重复step3，直到排序结束<br>
-所以：堆排序的时间复杂度为<code>O(nlog２n)</code><br>
-<strong>小结</strong>：不稳定，适合于n较大的情况，需要一个记录大小供交换用的辅助存储空间</p>
+            <p>测试图床</p>
+<p><img src="https://i.loli.net/2021/04/06/GpJbQYurH9jD7mn.png" alt="image-20210406172145599"></p>
 
           
         
@@ -1907,7 +1680,7 @@ Step4:重复step3，直到排序结束<br>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2020/12/20/DS-5-1/">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%802/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wan Li">
@@ -1926,7 +1699,7 @@ Step4:重复step3，直到排序结束<br>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/12/20/DS-5-1/" itemprop="url">快速排序</a></h1>
+                <a class="post-title-link" href="/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%802/" itemprop="url">汇编语言2</a></h1>
         
 
         <div class="post-meta">
@@ -1938,8 +1711,8 @@ Step4:重复step3，直到排序结束<br>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-20T23:03:10+08:00">
-                2020-12-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
               </time>
             
 
@@ -1978,23 +1751,82 @@ Step4:重复step3，直到排序结束<br>
       
         
           
-            <h1>起泡排序</h1>
-<p><strong>思想</strong>：交换排序，借助相邻元素的两两比较，出现逆序就交换<br>
-<strong>过程</strong>：<br>
-第一趟排序：从第1到第n个元素，若相邻两个元素位置逆序，交换；否则继续比较下面两个相邻元素，结果使关键字最大的记录被安置到第n个记录的位置上。<br>
-第i趟排序：从第1到第n-i+1个元素，使n-i+1个关键字最大的记录被交换到第n-i+1个记录的位置上。每趟起泡排序，无序序列长度缩小1<br>
-<strong>结束条件</strong>：在任何一趟排序过程中，未出现交换。<br>
-<strong>效率分析</strong>:正序<code>O(n)</code>,逆序<code>O(n2)</code><br>
-<strong>稳定性</strong>：稳定</p>
-<h1>分区排序</h1>
-<p><strong>基本思想</strong>：任选一个待排序序列中的关键字为基准，通过一趟排序将待排记录分割成独立的两部分，其中一部分记录的关键字均小于等于基准，另一部分都大于等于基准。分别对两个子序列进行快速排序，达到整个序列有序。<br>
-<strong>一趟快速排序(一次划分)</strong>：<br>
-待排序序列<code>{L.r[s],L.r[s+1],…,L.r[t]}</code>，选<code>L.r[s]</code>为枢轴，<br>
-排序后 <code>{L.r[s],L.r[s+1],…,L.r[i-1]}</code>和<code>{L.r[i+1],L.r[i+2],…,L.r[t]}</code><br>
-一趟快速排序过程：设指针<code>low=1,high=n</code>，<br>
-Step1:从high所指位置起向前搜索找到第一个关键字小于枢轴的记录与枢轴交换，<br>
-Step2:从low所指位置起向后搜索找到第一个关键字大于枢轴的记录与枢轴交换，<br>
-Step3:重复这两步直到low=high为止。</p>
+            <h1>汇编语言第二周</h1>
+<h3 id="1、处理器指令格式">1、处理器指令格式</h3>
+<h4 id="处理器指令">处理器指令</h4>
+<ul>
+<li>指令由<strong>操作码</strong>和<strong>操作数</strong>组成</li>
+<li>**操作码（Opcode)**表明处理器执行的操作
+<ul>
+<li>汇编使用<strong>指令助记符</strong>表示</li>
+</ul>
+</li>
+<li>**操作数（Operand)**是参与操作的数据对象
+<ul>
+<li>以<strong>寄存器名或地址形式</strong>指明数据的来源</li>
+<li>汇编使用<strong>寄存器、常量、变量</strong>等表示</li>
+</ul>
+</li>
+</ul>
+<h4 id="指令格式">指令格式</h4>
+<p><img src="G:%5C%E5%85%B6%E4%BB%96%5CTypora%5Cimages%5Cimage-20210314151257421.png" alt="image-20210314151257421"></p>
+<h3 id="2、汇编语言语句">2、汇编语言语句</h3>
+<p><strong>执行性语句</strong>：表达处理器指令，实现功能</p>
+<p>​	标号	硬指令助记符	操作数，操作数；注释</p>
+<ul>
+<li>标号
+<ul>
+<li>冒号分隔</li>
+<li>表示处理器指令在主存中的逻辑地址</li>
+<li>指示分支、循环等程序的目的地址</li>
+</ul>
+</li>
+</ul>
+<p><strong>说明性语句</strong>：表达伪指令， 控制汇编方式</p>
+<p>​	名字	伪指令助记符	参数，参数，…	；注释</p>
+<ul>
+<li>名字
+<ul>
+<li>空格或制表符分割</li>
+<li>变量名，段名，子程序名</li>
+<li>反映变量名，段名，子程序的逻辑地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、助记符">3、助记符</h3>
+<p><strong>硬指令助记符</strong>表示处理器指令</p>
+<p><strong>伪指令助记符</strong>表达一个汇编命令</p>
+<h3 id="4、汇编语言开发步骤">4、汇编语言开发步骤</h3>
+<ul>
+<li>编辑：用文件编辑器形成一个以asm为扩展名的源程序文件
+<ul>
+<li>源程序文件：<code>*.asm	</code>包含文件：<code>*.inc</code></li>
+</ul>
+</li>
+<li>汇编：用汇编程序将asm文件转换为obj模块文件
+<ul>
+<li><strong>命令：BIN\ML  /c /coff  /Fl  /Zi eg0101.asm</strong>
+<ul>
+<li>/c 实现汇编	/coff 生成目标模块文件   /Fl 生成列表文件	/Zi 调试程序</li>
+</ul>
+</li>
+<li>目标模块文件：<code>*.obj </code>  列表文件：<code>*.list </code>  库文件: <code>*.lib</code></li>
+</ul>
+</li>
+<li>连接：用连接程序将一个或多个目标文件连接成一个exe或者com可执行文件
+<ul>
+<li><strong>命令：BIN\LINK32	/subsystem:console /debug eg0101.obj</strong>
+<ul>
+<li><code>:console</code>控制台程序 <code>:windows</code>图形化程序	<code>/debug</code>调试</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>调试：用调试程序排除错误，生成正确的可执行文件</li>
+</ul>
+<h3 id="5、源程序框架">5、源程序框架</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">; eg0000.asm in Windows Console</span><br><span class="line">	include io32.inc ;包含32位输入输出文件</span><br><span class="line">	.data			 ;定义数据段</span><br><span class="line">	...				 ;数据定义</span><br><span class="line">	.code			 ;定义代码段</span><br><span class="line">start:				 ;代码执行起始位置</span><br><span class="line">	...				 ;主程序</span><br><span class="line">	exit 0			 ;程序正常执行结束</span><br><span class="line">	...			     ;子程序</span><br><span class="line">	end start		 ;汇编结束</span><br></pre></td></tr></table></figure>
+<h3 id="6、">6、</h3>
 
           
         
@@ -2043,7 +1875,7 @@ Step3:重复这两步直到low=high为止。</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wanli6.github.io/2020/12/20/DS-5-2/">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wan Li">
@@ -2062,7 +1894,7 @@ Step3:重复这两步直到low=high为止。</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/12/20/DS-5-2/" itemprop="url">插入排序</a></h1>
+                <a class="post-title-link" href="/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" itemprop="url">汇编语言</a></h1>
         
 
         <div class="post-meta">
@@ -2074,8 +1906,8 @@ Step3:重复这两步直到low=high为止。</p>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-20T22:49:42+08:00">
-                2020-12-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
               </time>
             
 
@@ -2114,32 +1946,235 @@ Step3:重复这两步直到low=high为止。</p>
       
         
           
-            <h1>直接插入排序</h1>
-<p><strong>思想</strong>：将一个记录插入到已排序的有序表，得到一个新的、记录数增1的有序表。<br>
-<strong>过程</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Step1:查找R[i]的插入位置j+1；</span><br><span class="line">Step2:将R[j+1..i-1]中的记录后移一个位置；</span><br><span class="line">Step3:将R[i]复制到R[j+1]的位置上。</span><br></pre></td></tr></table></figure>
-<p><strong>小结</strong>：小结：稳定，在序列记录基本有序或n值较小时最佳  <code>O(n2)</code></p>
-<h1>折半插入排序</h1>
-<p><strong>思想</strong>:在有序表中，设<code>R[1..i-1]</code>是一个按关键字有序的序列，用折半查找确定<code>R[i]</code>在<code>R[1..i-1]</code>中的插入位置”<br>
-<strong>过程</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Step1:用折半查找确定R[i]在R[1..i-1]中的插入位置”</span><br><span class="line">Step2:最后一个记录到插入位置的记录依次向后移动一个位置</span><br><span class="line">Step3:记录R[i]插入</span><br></pre></td></tr></table></figure>
-<p><strong>小结</strong>：稳定，适用于待排序记录数量很大的情况。 <code>O(n2)</code></p>
-<h1>2-路插入排序</h1>
-<p><strong>思想</strong>：另设一个与L.r同类型的数组d，令<code>d[1]=L.r[1]</code>，将<code>d[1]</code>看成排好序的序列中处于中间位置的记录。从L.r的第二个记录起依次与<code>d[1]</code>比较，若<code>L.r[i].key&lt;d[1].key</code>,插入到<code>d[1]</code>之前的有序表中，若<code>L.r[i].key&gt;d[1].key</code>,插入到<code>d[1]</code>之后的有序表中。<br>
-<strong>优点</strong>：在折半插入排序基础上改进，减少了排序过程中移动记录的次数，为n2/8。<br>
-<strong>缺点</strong>：<br>
-不能绝对避免记录移动<br>
-增加了记录的辅助空间,为n个。<br>
-当<code>d[1]</code>为最大或最小关键字时，无优势可言。</p>
-<h1>希尔排序</h1>
-<p><strong>出发点</strong>：<br>
-（1）若待排序的记录基本有序时，直接插入排序的效率可以大大提高；<br>
-（2）n值很小时，效率也比较高。<br>
-<strong>基本思想</strong>：将待排序记录序列分成若干子序列分别进行直接插入排序，待整个序列中记录“基本有序” 时，再对全体记录进行一次直接插入排序。<br>
-<strong>特点</strong>:相隔某个增量的记录组成一个子序列。<br>
-<strong>时间复杂度</strong>:是所取增量的函数， O（n3/2）<br>
-<strong>稳定性</strong>：不稳定<br>
-<strong>增量序列的选取</strong>:使增量序列中的值没有除1外的公因子，且最后一个增量必须是1。</p>
+            <h1>汇编语言</h1>
+<h3 id="1、汇编语言与高级语言对比">1、汇编语言与高级语言对比</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">汇编语言</th>
+<th style="text-align:center">高级语言</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">与处理器密切相关，<strong>可移植性</strong>较差</td>
+<td style="text-align:center">与具体计算机无关，<strong>便于移植</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">功能有限，涉及<strong>硬件</strong>细节，编写<strong>繁琐困难</strong></td>
+<td style="text-align:center">高级语言<strong>功能强大</strong>，语法自然，容易理解和掌握</td>
+</tr>
+<tr>
+<td style="text-align:center">直接有效的控制硬件，容易产生运行<strong>速度快</strong>，指令序列<strong>短小</strong>的<strong>高效率</strong>目标程序</td>
+<td style="text-align:center">不易直接控制计算机的各种操作，产生的目标程序往往比较庞大</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2、汇编语言的应用价值">2、汇编语言的应用价值</h3>
+<ul>
+<li>编写运行<strong>速度快、代码量小</strong>的高效程序</li>
+<li>编写底层，<strong>直接控制硬件</strong>的程序</li>
+<li><strong>加解密、病毒防治</strong>等信息安全程序的编程分析</li>
+<li>更好的是用高级语言编程</li>
+</ul>
+<h3 id="3、寄存器（Register）">3、寄存器（Register）</h3>
+<ul>
+<li>
+<p>由<strong>处理器</strong>抽象而来</p>
+</li>
+<li>
+<p>处理器内部的<strong>高速</strong>存储单元</p>
+<p><img src="G:%5C%E5%85%B6%E4%BB%96%5CTypora%5Cimages%5Cimage-20210314142551569.png" alt="image-20210314142551569"></p>
+</li>
+</ul>
+<h3 id="4、存储器地址">4、存储器地址</h3>
+<ul>
+<li>主存储器划分为许多<strong>存储单元</strong></li>
+<li>每个存储单元被编排一个**存储单元地址（存储器地址）**Memory Address</li>
+<li>每个存储单元以字节为基本存储地址
+<ul>
+<li>即为<strong>字节编址</strong> byte addressable</li>
+<li>一个<strong>字节Byte</strong>等于8个<strong>二进制位bit</strong></li>
+<li>二进制位是计算机存储信息的最小单位</li>
+</ul>
+</li>
+</ul>
+<p><img src="G:%5C%E5%85%B6%E4%BB%96%5CTypora%5Cimages%5C21df3b88cb67484984e60cde39c76dff.png" alt="21df3b88cb67484984e60cde39c76dff"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wanli6.github.io/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%803/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wan Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WL Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%803/" itemprop="url">汇编语言3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-06T22:02:18+08:00">
+                2021-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>汇编语言第三周</h1>
+<h3 id="1、数制">1、数制</h3>
+<ul>
+<li>
+<p>二进制    后缀B</p>
+</li>
+<li>
+<p>十进制     后缀D</p>
+</li>
+<li>
+<p>十六进制    后缀H</p>
+</li>
+</ul>
+<p>数字计算机基于二值逻辑电路</p>
+<p>二进制直接反应硬件工作原理</p>
+<h3 id="2、编码">2、编码</h3>
+<ul>
+<li>数值的二进制编码是用若干二进制位的0和1数码表达数值</li>
+</ul>
+<h4 id="真值和机器数">真值和机器数</h4>
+<p>真值：现实中真实的数值</p>
+<p>机器数：计算机用二进制组合的数值</p>
+<h4 id="整数编码">整数编码</h4>
+<ul>
+<li>无符号整数	unsigned
+<ul>
+<li>没有复数，从0到2的n次方-1</li>
+</ul>
+</li>
+<li>有符号整数
+<ul>
+<li>最高位表示正负	从-2的n-1次方到2的n次方</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、常量">3、常量</h3>
+<h4 id="常数">常数</h4>
+<ul>
+<li>以后缀字母区分，十六进制A-F开头的要加前导0</li>
+</ul>
+<h4 id="字符和字符串">字符和字符串</h4>
+<ul>
+<li>单引号，双引号没有区别，字符和字符串也没有本质区别</li>
+</ul>
+<h4 id="符号常量">符号常量</h4>
+<ul>
+<li>符号名 = 数值表达式</li>
+<li>符号名 equ 数值表达式</li>
+<li>符号名 equ &lt;字符串&gt;</li>
+</ul>
+<h4 id="数值表达式">数值表达式</h4>
+<ul>
+<li>运算符连接各种常量</li>
+<li>数值用作地址，为<strong>地址表达式</strong></li>
+</ul>
+<h3 id=""></h3>
 
           
         
@@ -2179,7 +2214,7 @@ Step3:重复这两步直到low=high为止。</p>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -2215,7 +2250,7 @@ Step3:重复这两步直到low=high为止。</p>
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Wan Li</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">wl</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -2223,9 +2258,9 @@ Step3:重复这两步直到low=high为止。</p>
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
